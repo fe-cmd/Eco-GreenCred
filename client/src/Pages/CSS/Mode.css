@@ -1,0 +1,75 @@
+.login-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+  }
+  
+  .top-bar {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+  }
+  
+  
+  .mode-options {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 20px; /* Added gap for spacing */
+  }
+  
+  .mode-option {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    position: relative;
+    width: calc(50% - 10px);
+  }
+  
+  .mode-option.active {
+    border-color: rgb(5, 49, 5);
+  }
+  
+  .header-container {
+    position: relative;
+    display: inline-block;
+    width: 80%;
+  }
+  
+  .header-container h3 {
+    margin: 0;
+  }
+  
+  .hover-line {
+    border: none;
+    border-top: 1px solid rgb(253, 128, 10);
+    margin-top: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .mode-option:hover .hover-line {
+    opacity: 1;
+  }
+  
+  .mode-option.active .header-container {
+    background-color: rgb(253, 128, 10);
+    color: rgb(5, 49, 5);
+    padding: 0 5px;
+    border-radius: 3px;
+  }
+  
+  .check-mark,
+  .radio-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: rgb(5, 49, 5);
+  }

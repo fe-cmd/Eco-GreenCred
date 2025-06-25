@@ -1,0 +1,157 @@
+.back-arrow {
+    position: relative;
+    left: 20px;
+    cursor: pointer;
+    z-index: 1000;
+    color: #333;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .grp{
+    display: flex;
+    gap: 50px;
+    flex-direction: column;
+    
+  }
+
+  .hi{
+    margin-top: 20px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    justify-items: center;
+  }
+
+  
+  .back-arrow:hover {
+    transform: scale(1.1);
+  }
+
+   .layout-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns on larger screens */
+    gap: 0; /* No gap between grid items */
+    max-width: 960px; /* Adjust as needed */
+    margin: 20px auto; /* Center the container with some top/bottom margin */
+    overflow: hidden;
+    transform-origin: top left;  /* Ensure scaling happens from the top-left */
+    transition: transform 0.3s ease, width 0.3s ease;
+    margin-top: 100px;
+    border-radius: 20px;
+  }
+  
+  
+  
+  .text-section {
+    background-color: rgb(5, 49, 5); /* Dark background */
+    color: #fff;
+    padding: 30px;
+
+  }
+  
+  .text-section h2 {
+    color: rgb(253, 128, 10);
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+  }
+  
+  .text-section p {
+    line-height: 1.7;
+    font-size: 1.1em;
+  }
+  
+  .image-section {
+    margin: 0; /* Remove default margins */
+  }
+
+  
+  
+  .image-section img {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    height: 400px;
+    object-fit: cover;
+  }
+
+  /* Specific ordering based on your component structure */
+  .layout-container > div:nth-child(1) { /* Our Mission Text */
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    border-bottom-right-radius: 20px;
+  }
+  
+  .layout-container > div:nth-child(2) { /* First Image (ao24) */
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    
+  }
+  
+  .layout-container > div:nth-child(3) { /* Second Image (ao14) */
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+  
+  .layout-container > div:nth-child(4) { /* Our Vision Text */
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
+
+  }
+  
+  .layout-container > div:nth-child(5) { /* Third Text (Placeholder) */
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+    background-color: rgb(5, 49, 5); /* Ensure consistent background */
+    color: #fff;
+    border-top-right-radius: 20px;
+  }
+  
+  .layout-container > div:nth-child(6) { /* Third Image (ao13) */
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+    border-bottom-right-radius: 20px;
+  }
+
+  /* 📱 Mobile View (Zoom-Out Effect) */
+@media screen and (max-width: 768px) {
+  .back-arrow{
+        margin-top: 50px;
+    }
+
+    .layout-container {
+      margin-bottom: -400px;
+        transform: scale(0.7);
+        width: calc(960px * 0.7); /* Maintain aspect ratio while scaling */
+      }
+    
+      /* Optional: adjust vertical spacing if layout looks too tight */
+      .layout-container > div {
+        padding: 10px;
+      }
+    
+      .text-section h2 {
+        font-size: 1.4em;
+        margin-bottom: 10px;
+      }
+    
+      .text-section p {
+        font-size: 1.2em;
+        line-height: 1.5;
+      }
+    
+      .image-section img {
+        object-fit: cover;
+        min-height: 400px; /* Reduce image height proportionally */
+      }
+}
+
+@media (max-width: 480px) { 
+     .layout-container {
+      transform: scale(0.6);
+      width: calc(960px * 0.6); /* Maintain aspect ratio while scaling */
+    }
+}

@@ -1,0 +1,759 @@
+.navbar {
+    position: fixed;  /* Make the navbar fixed at the top */
+  top: 0;  /* Stay at the top */
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background-color: rgb(5, 49, 5);
+  color: white;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Optional shadow for effect */
+  }
+  
+  .logo-section {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* adds space between image and text */
+    position: relative;
+    z-index: 2;
+  }
+
+  .logo-section1 {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    z-index: 2;
+    margin: 50px 80px 0 0;
+  }
+  
+  .logo-circle {
+    width: 120px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 20px;
+  }
+
+  .logo-circle1 {
+    background-color: #fff;
+    border-radius: 20px;
+    width: 150px;
+    justify-content: center;
+    align-items: center;
+
+  }
+  
+  .logo-image {
+    width: 250px; /* consistent logo size */
+    height: 150px;
+    object-fit: cover;
+  }
+
+  .logo-image1 {
+    width: 150px; /* consistent logo size */
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .logo-text {
+    font-weight: bold;
+    font-size: 15px;
+    color: white;
+    white-space: nowrap; /* prevents breaking into two lines */
+  }
+
+  .logo-text1 {
+    font-weight: bold;
+    font-size: 25px;
+    color: white;
+    white-space: nowrap; /* prevents breaking into two lines */
+  }
+  
+  .menu {
+    position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  list-style: none;
+  gap: 40px;
+  font-size: 12px;
+  z-index: 1;
+  }
+  
+  .menu li {
+    position: relative;
+  cursor: pointer;
+  color: white;
+  transition: color 0.3s ease;
+  }
+
+  .menu li:hover {
+    color: rgb(253, 128, 10);
+  }
+  
+  .menu li:hover::after {
+    content: "";
+    display: block;
+    height: 2px;
+    background: rgb(253, 128, 10);
+    width: 100%;
+    margin-top: 4px;
+    transition: all 0.3s;
+  }
+  
+  .menu li.active {
+    color: rgb(253, 128, 10);
+  }
+  
+  .menu li.active::after {
+    content: none;
+  }
+
+  /* Dropdown Icon */
+.menu li.has-dropdown::after {
+    content: " ▾";
+    font-size: 12px;
+    margin-left: 4px;
+  }
+  
+  /* Dropdown Menu */
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    background-color: rgb(5, 49, 5);
+    padding: 10px 0;
+    border-top: 2px solid rgb(253, 128, 10);
+    z-index: 5;
+    min-width: 150px;
+  }
+  
+  .menu li:hover .dropdown {
+    display: flex;
+  }
+  
+  .dropdown button {
+    background: none; /* Remove button background */
+    border: none; /* Remove button border */
+    padding: 8px 20px; /* Keep the padding the same as the links */
+    white-space: nowrap; /* Prevent text from wrapping */
+    color: white; /* Set text color */
+    text-decoration: none; /* Remove underline */
+    transition: all 0.3s; /* Apply the same transition as your links */
+    cursor: pointer; /* Make the button clickable like a link */
+  }
+  
+  .dropdown button:hover {
+    color: rgb(253, 128, 10); /* Same hover color as the link */
+  }
+  
+  .dropdown button.clicked {
+    color: rgb(253, 128, 10); /* Same clicked color as the link */
+  }
+  
+  .dropdown button:hover::after {
+    content: "";
+    display: block;
+    height: 2px;
+    background: rgb(253, 128, 10);
+    width: 100%;
+    margin-top: 2px;
+  }
+  
+ 
+
+  /* Active dropdown items */
+  .menu li.has-dropdown .dropdown button.active {
+    color: rgb(253, 128, 10);
+}
+  
+  /* Hamburger Icon */
+.hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: rgb(253, 128, 10);
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+  }
+  @media (max-width: 768px) {
+    .section2 {
+      display: flex;
+      flex-direction: column;
+      padding: 30px 20px;
+    }
+  
+    
+  }
+  /* Responsive menu */
+  @media (max-width: 768px) {
+    .menu {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      left: -100%;
+      background-color: rgb(5, 49, 5);
+      width: 250px;
+      height: 70%;
+      padding-top: 50px;
+      transition: left 0.3s ease;
+      z-index: 998;
+      margin-top: 70px;
+    }
+
+    .dropdown{
+        left:50px;
+    }
+  
+    .menu.open {
+      left: 50px;
+    }
+  
+    .menu li {
+      padding: 0 0 15px 100px;
+      border-bottom: 1px solid #333;
+    }
+  
+    .menu li.active {
+      color: rgb(253, 128, 10);
+    }
+  
+    .hamburger {
+      display: block;
+    }
+
+    .section1 p{
+      font-size: 15px;
+    }
+
+     
+  }
+
+  @media (max-width: 480px) {
+    /* Adjust further for very small screens */
+    .logo-text {
+      font-size: 12px;
+    }
+    .hamburger {
+      right: 50px;
+    }
+
+    .hero-slide .overlay {
+      min-height: 50px;
+      max-width: 30px;
+    }
+
+    .section1 p{
+      font-size: 10px;
+    }
+
+    .section1 h1{
+      font-size: 20px;
+    }
+
+    .section2 p, .section3 p {
+      font-size: 10px;
+    }
+
+    .section2 h1, .section3 h1 {
+      font-size: 15px;
+    }
+
+    .section2 button, .section3 button  {
+      font-size: 12px;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 10px; /* adds space between image and text */
+      position: relative;
+      z-index: 2;
+      left: -30px;
+  
+    }
+
+    .logo-circle, .logo-image {
+      width: 80px;
+    }
+
+    .menu {
+      height: 90%;
+    }
+  }
+  
+ 
+  
+  .hero-container {
+    width: 100%;
+    height: 90vh;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .hero-slide {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+
+  .hero-slide .background-zoom {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-position: center;
+    animation: zoomIn 8s ease-in-out infinite;
+    z-index: 0;
+  }
+
+  .hero-slide .overlay {
+    position: relative;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.5); /* semi-transparent dark bg */
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 700px;
+    color: white;
+    text-align: center;
+  }
+
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between buttons */
+    margin-top: 20px;
+    align-items: center;
+  }
+  
+  .read-more-button {
+   
+    font-size: 20px;
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .download-button {
+    width: 100%;
+    font-size: 25px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    max-width: 200px;
+  }
+  
+
+  .section1{
+    margin-top: 50px;
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 700px;
+    color: black;
+    text-align: center;
+    width: 100%;
+    max-width: 700px;
+    justify-self: center;
+  }
+
+  .section2, .section3 {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 100%;
+    max-width: 800px;
+    background-color: rgb(5, 49, 5);
+    color: rgb(253, 128, 10);
+    justify-self: center;
+    padding: 60px 20px 20px 50px;
+    border-radius: 20px;
+    min-height: 80vh;
+    overflow: hidden;
+
+  }
+
+  .section2 p, .section3 p{
+    font-size: 13px;
+    color: #fff;
+  }
+
+  .section2 button, .section3 button {
+    padding: 12px 24px;
+    font-size: 14px;
+    border: 3px solid rgb(253, 128, 10);
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background 0.3s;
+    background: rgb(5, 49, 5);
+  }
+
+  /* Image container */
+.rightview {
+    position: relative;
+    min-height: 200px;
+    width: 2000px;
+    background-color: white; /* ONLY the image container is white */
+    overflow: hidden;
+    border-radius: 15px;
+  }
+  
+  /* Image initial state */
+  .imgside {
+    width: 100%;
+    height: 100%;
+    min-width: 200px;
+    min-height: 200px;
+    object-fit: cover;
+    transform: translateY(100%);
+    transition: transform 1s ease-out, opacity 1s ease-out;
+    opacity: 0;
+  }
+
+  .imgside1 {
+    width: 100%;
+    height: 100%;
+    object-fit: fit;
+    transform: translateX(100%);
+    transition: transform 1s ease-out, opacity 1s ease-out;
+    opacity: 0;
+  }
+  
+  /* When section is in view */
+  .section2.in-view .imgside {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .section3.in-view .imgside1 {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  .section1 p{
+    font-size: 18px;
+    color: #333;
+  }
+
+  .section1 button{
+    padding: 12px 24px;
+    font-size: 16px;
+    background: #fff;
+    border: 3px solid rgb(253, 128, 10);
+    color: black;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background 0.3s;
+  }
+  
+  .section1 button:hover{
+    background-color: rgb(5, 49, 5);
+    color: white;
+  }
+
+  @keyframes zoomIn {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.15); }
+  }
+
+  .section3 {
+    margin-bottom: 60px;
+  }
+  
+  
+  .hero-slide h1 {
+    font-size: 25px;
+    margin-bottom: 20px;
+  }
+  
+  .hero-slide p {
+    font-size: 15px;
+    margin-bottom: 30px;
+  }
+  
+  .hero-slide button {
+    padding: 12px 24px;
+    font-size: 15px;
+    background: rgb(253, 128, 10);
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+  }
+  
+  .hero-slide button:hover {
+    background: rgb(5, 49, 5);
+  }
+
+  .image-layout-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    min-width: 200px;
+    padding: 20px;
+  box-sizing: border-box;
+  gap: 20px;
+  flex-wrap: wrap;
+  overflow: hidden;
+  }
+  
+  .side-image,
+.middle-image img {
+  width: 400px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.side-image {
+  z-index: 1;
+}
+
+.trigger-area {
+  position: absolute;
+  width: 250px;
+  height: 300px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 20px;
+}
+
+.top-trigger {
+  top: 20px;
+}
+
+.bottom-trigger {
+  bottom: 20px;
+}
+
+.middle-image {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.middle-image img {
+  opacity: 0;
+  transform: translateY(0);
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.animate-down img {
+  opacity: 1;
+  transform: translateY(30px);
+}
+
+.animate-up img {
+  opacity: 1;
+  transform: translateY(-30px);
+}
+
+/* RESPONSIVE: stack vertically on smaller screens */
+@media (max-width: 768px) {
+  .image-layout-wrapper {
+    flex-direction: column;
+    height: auto;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .side-image {
+    width: 400px;
+    height: 300px;
+  }
+
+  .trigger-area {
+    position: relative;
+    transform: none;
+    left: 0;
+  }
+
+  .top-trigger,
+  .bottom-trigger {
+    top: auto;
+    bottom: auto;
+  }
+}
+
+.product-list {
+   margin-top: 50px;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden; /* Disable vertical scroll */
+    padding-bottom: 10px;
+    margin-bottom: 60px;
+    gap: 16px;
+  }
+  
+  .product-list::-webkit-scrollbar {
+    height: 8px;
+    background-color: #f1f1f1;
+  }
+  
+  .product-list::-webkit-scrollbar-thumb {
+    background: rgb(253, 128, 10);
+    border-radius: 4px;
+  }
+  
+  .product-card {
+    flex: 0 0 auto;
+    width: 280px; /* Width is larger than height */
+    height: 400px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .image-container5 {
+    width: 280px; /* Ensure image container is smaller than card */
+    height: 250px; /* Maintain a rectangular aspect ratio */
+    margin: 0 auto; /* Center the container */
+    overflow: hidden;
+    border-radius: 12px; /* Rounded corners for the image container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f9f9f9; /* Background to simulate padding around the image */
+  }
+  
+  .product-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px; /* Slightly round the image edges */
+  
+  }
+
+  .footer{
+    background-color: rgb(5, 49, 5);
+    bottom: 0;
+    min-height: 100vh;
+    color: white;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  }
+
+  .footer h2{
+    color: rgb(253, 128, 10);
+  }
+
+  .footer__container {
+    width: 100%;
+  max-width: 1200px;
+  }
+
+
+  .footer__links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .footer__link--wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+  }
+  
+  .footer__link--items button {
+    background: none; /* Remove button background */
+    border: none; /* Remove button border */
+    padding: 6px 20px; /* Keep the padding the same as the links */
+    color: white; /* Set text color */
+    text-decoration: none; /* Remove underline */
+    display: flex;
+    align-items: center; /* Align icon and text */
+    cursor: pointer; /* Make the button clickable like a link */
+  }
+  
+  .footer__link--items button:hover {
+    color: rgb(253, 128, 10); /* Same hover color as the link */
+    text-decoration: underline; /* Underline effect on hover */
+  }
+  
+  .footer__link--items button.clicked {
+    color: rgb(253, 128, 10); /* Same clicked color as the link */
+  }
+  
+.website__right{
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+}  
+
+.website__right1{
+  color: #fff;
+  font-size: 10px;
+  
+}  
+  
+@media screen and (max-width: 768px) {
+
+  .footer{
+    min-height: 120vh;
+    bottom: 0;
+
+  }
+
+  .logo-section1{
+    justify-self: left;
+    justify-items: left;
+    justify-content: left;
+    align-items: flex-start;
+  }
+  .footer__links {
+    flex-direction: column;
+    align-items: left;
+  }
+
+  .footer__link--wrapper {
+    margin: 10px 0;
+    align-items: left;
+  }
+
+  .footer__link--items {
+    align-items: left;
+  }
+
+  .footer__link--items button {
+    justify-content: left;
+    text-align: left;
+  }
+}

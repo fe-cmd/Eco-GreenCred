@@ -1,0 +1,194 @@
+.admin-review-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+}
+
+.back-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: rgb(5, 49, 5);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.media-container {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  background: rgb(5, 49, 5);
+}
+
+.review-media {
+  width: 100%;
+  max-width: 600px;
+  max-height: 350px;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+  gap: 10px;
+  font-size: 1rem;
+}
+
+.info-row p {
+  flex: 1;
+  min-width: 120px;
+  margin: 0.5rem;
+}
+
+.status-row {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.approve-btn,
+.decline-btn {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.approve-btn {
+  background-color: rgb(5, 49, 5);
+  color: white;
+}
+
+.decline-btn {
+  background-color: rgb(133,3,3);
+  color: white;
+}
+
+.approved-status,
+.declined-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.approved-status {
+  color: rgb(5, 49, 5);
+}
+
+.declined-status {
+  color: rgb(133,3,3);
+}
+
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.popup-box {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.popup-box label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.points-input-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+
+.points-input-wrapper input {
+  width: 80px;
+  padding: 0.6rem;
+  font-size: 1rem;
+  text-align: right;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.pts-label {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.coin-icon {
+  color: gold;
+  font-size: 1.2rem;
+}
+
+.popup-actions {
+  display: flex;
+  justify-content: space-around;
+}
+
+.popup-approve-btn,
+.popup-cancel-btn {
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.popup-approve-btn {
+  background-color: rgb(5, 49, 5);
+  color: white;
+}
+
+.popup-cancel-btn {
+  background-color: #999;
+  color: white;
+}
+
+.no-upload-msg {
+  font-style: italic;
+  color: #666;
+  margin-top: 2rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .info-row {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .status-row {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  .review-media {
+    max-width: 100%;
+    height: auto;
+  }
+}

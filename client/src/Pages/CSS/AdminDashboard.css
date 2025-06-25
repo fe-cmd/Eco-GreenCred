@@ -1,0 +1,166 @@
+.background-wrapper-admin {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.overlay-admin {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4); /* dark overlay */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.admin-dashboard-container {
+  background: #ffffff;
+  width: 100%;
+  max-width: 800px;
+  border-radius: 12px;
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgb(5, 49, 5);
+  font-weight: bold;
+}
+
+.profile-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-pic-container {
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+
+.profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.camera-icon1 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: rgb(253, 128, 10);
+  border-radius: 50%;
+  padding: 3px;
+  font-size: 14px;
+  cursor: pointer;
+  color: rgb(5, 49, 5);
+  box-shadow: 0 0 3px rgba(0,0,0,0.3);
+}
+
+.logout-btn {
+  background-color: rgb(5, 49, 5);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.logout-btn:hover {
+  background-color: rgb(253, 128, 10);
+  color: rgb(5, 49, 5);
+}
+
+.uploads-section {
+  margin-top: 30px;
+}
+
+.no-uploads-msg {
+  text-align: center;
+  font-style: italic;
+  color: gray;
+}
+
+.user-upload-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+  background: white;
+}
+
+.user-upload-card:hover {
+  background-color: #f4f4f4;
+}
+
+.card-profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.card-user-info {
+  flex: 1;
+  margin-left: 12px;
+}
+
+.card-name {
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-username {
+  color: gray;
+  font-size: 0.9em;
+  margin: 0;
+}
+
+.card-status .status {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.status.pending {
+  background-color: rgb(253, 128, 10);
+  color: white;
+}
+
+.status.approved {
+  background-color: rgb(5, 49, 5);
+  color: white;
+}
+
+.status.declined {
+  background-color: rgb(133, 3, 3);
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .admin-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}

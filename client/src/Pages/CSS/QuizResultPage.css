@@ -1,0 +1,95 @@
+.quiz-result-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f0fff4;
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.quiz-result-container {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.quiz-trophy-icon {
+  font-size: 40px;
+  color: #ff9900;
+  margin-bottom: 10px;
+}
+
+.score-display {
+  font-size: 1.4rem;
+  margin-top: 20px;
+}
+
+.points-earned {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: rgb(5, 49, 5);
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.progress-bar-wrapper {
+  margin: 20px 0;
+  background: #ddd;
+  height: 15px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  transition: width 0.5s ease-in-out;
+}
+
+.progress-bar-fill.pass {
+  background: #2ecc71;
+}
+
+.progress-bar-fill.fail {
+  background: #e74c3c;
+}
+
+.status-icon {
+  font-size: 2rem;
+  margin: 10px 0;
+}
+
+.status-icon.pass {
+  color: #2ecc71;
+}
+
+.status-icon.fail {
+  color: #e74c3c;
+}
+
+.pass-text,
+.fail-text {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.exit-btn {
+  background-color: rgb(5, 49, 5);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.exit-btn:hover {
+  background-color: rgb(253, 128, 10);
+  color: rgb(5, 49, 5);
+}

@@ -1,0 +1,242 @@
+[
+  {
+    "name": "Joshua Akinwole",
+    "username": "Jun",
+    "email": "a@a.com",
+    "password": "12345678",
+    "phone": "07065838151",
+    "occupation": "Doctor",
+    "profileImage": "uploads/profile/Jun.png",
+    "uploads": [
+      {
+        "id": 1750632778583,
+        "activityType": "Sustainable Gardening",
+        "description": "A beautiful time",
+        "filePath": "/uploads/1750632778413-cec72410ff9b421a9f441e3f0452b369.mp4",
+        "fileType": "video",
+        "status": "approved",
+        "points": 100,
+        "timestamp": "2025-06-22T22:52:58.583Z"
+      },
+      {
+        "id": 1750684783834,
+        "activityType": "Bike Commuting",
+        "description": "Enjoy freely!",
+        "filePath": "/uploads/1750684782900-1.mp4",
+        "fileType": "video",
+        "status": "approved",
+        "points": 250,
+        "timestamp": "2025-06-23T13:19:43.834Z"
+      },
+      {
+        "id": 1750689136280,
+        "activityType": "Beach Cleanup",
+        "description": "engines",
+        "filePath": "/uploads/1750689136270-acad.PNG",
+        "fileType": "image",
+        "status": "declined",
+        "points": 0,
+        "timestamp": "2025-06-23T14:32:16.280Z"
+      },
+      {
+        "id": 1750718578214,
+        "activityType": "Waste Collection",
+        "description": "shipments!",
+        "filePath": "/uploads/1750718578203-ao8.PNG",
+        "fileType": "image",
+        "status": "approved",
+        "points": 651,
+        "timestamp": "2025-06-23T22:42:58.214Z"
+      }
+    ],
+    "points": 1007
+  },
+  {
+    "name": "Vannessa",
+    "username": "LadyBlack",
+    "email": "b@l.com",
+    "password": "123456",
+    "phone": "09034456789",
+    "occupation": "Nurse",
+    "points": 390,
+    "uploads": [
+      {
+        "id": 1750685360292,
+        "activityType": "Beach Cleanup",
+        "description": "i know i am pretty right. smile!!!",
+        "filePath": "/uploads/1750685360273-beauty1.PNG",
+        "fileType": "image",
+        "status": "declined",
+        "points": 0,
+        "timestamp": "2025-06-23T13:29:20.292Z"
+      },
+      {
+        "id": 1750719157898,
+        "activityType": "Tree Planting",
+        "description": "seen this pretty woman before",
+        "filePath": "/uploads/1750719157886-blackwoman.PNG",
+        "fileType": "image",
+        "status": "approved",
+        "points": 390,
+        "timestamp": "2025-06-23T22:52:37.898Z"
+      }
+    ],
+    "profileImage": "uploads/profile/LadyBlack.PNG"
+  },
+  {
+    "name": "Der",
+    "username": "derun",
+    "email": "c@c.com",
+    "password": "12345",
+    "phone": "+2345678900",
+    "occupation": "doctor",
+    "points": 390,
+    "uploads": [
+      {
+        "id": 1750685588641,
+        "activityType": "Tree Planting",
+        "description": "great dey",
+        "filePath": "/uploads/1750685588618-tech1.PNG",
+        "fileType": "image",
+        "status": "approved",
+        "points": 390,
+        "timestamp": "2025-06-23T13:33:08.641Z"
+      }
+    ]
+  },
+  {
+    "name": "Femi",
+    "username": "gur",
+    "email": "c@d.com",
+    "password": "12345",
+    "phone": "234578975432",
+    "occupation": "drive",
+    "points": 1004,
+    "uploads": [
+      {
+        "id": 1750688981960,
+        "activityType": "Sustainable Gardening",
+        "description": "machines!",
+        "filePath": "/uploads/1750688981948-acad1.PNG",
+        "fileType": "image",
+        "status": "approved",
+        "points": 1000,
+        "timestamp": "2025-06-23T14:29:41.960Z"
+      }
+    ]
+  },
+  {
+    "name": "samuel",
+    "username": "samuel_olaolu",
+    "email": "samiatanimashaun28@gmail.com",
+    "password": "asdfvbnm",
+    "phone": "07044765385",
+    "occupation": "student",
+    "points": 1304,
+    "uploads": [
+      {
+        "id": 1750752334078,
+        "activityType": "Recycling",
+        "description": "recycle",
+        "filePath": "/uploads/1750752333983-0cdacf31fa464a38a9b189b37f14cbc9.mp4",
+        "fileType": "video",
+        "status": "approved",
+        "points": 200,
+        "timestamp": "2025-06-24T08:05:34.078Z"
+      },
+      {
+        "id": 1750753141859,
+        "activityType": "Wildlife Conservation",
+        "description": "i saved an animal",
+        "filePath": "/uploads/1750753141851-acad1.PNG",
+        "fileType": "image",
+        "status": "approved",
+        "points": 850,
+        "timestamp": "2025-06-24T08:19:01.859Z"
+      },
+      {
+        "id": 1750753707180,
+        "activityType": "Tree Planting",
+        "description": "Tree Planting",
+        "filePath": "/uploads/1750753707171-ad.PNG",
+        "fileType": "image",
+        "status": "declined",
+        "points": 0,
+        "timestamp": "2025-06-24T08:28:27.180Z"
+      },
+      {
+        "id": 1750760009957,
+        "activityType": "Wildlife Conservation",
+        "description": "beauty in making",
+        "filePath": "/uploads/1750760009810-ec27.png",
+        "fileType": "image",
+        "status": "approved",
+        "points": 250,
+        "timestamp": "2025-06-24T10:13:29.958Z"
+      }
+    ]
+  },
+  {
+    "name": "Jon",
+    "username": "doe",
+    "email": "d@c.com",
+    "password": "12345",
+    "phone": "23456789011",
+    "occupation": "Farmer",
+    "points": 2,
+    "uploads": []
+  },
+  {
+    "name": "don",
+    "username": "mac",
+    "email": "r@e.com",
+    "password": "12345",
+    "phone": "234567890",
+    "occupation": "Sew",
+    "points": 4,
+    "uploads": []
+  },
+  {
+    "name": "sed",
+    "username": "sunni",
+    "email": "f@w.com",
+    "password": "12345",
+    "phone": "07065838151",
+    "occupation": "doctor",
+    "points": 100,
+    "uploads": [
+      {
+        "id": 1750794694500,
+        "activityType": "Recycling",
+        "description": "oil",
+        "filePath": "/uploads/1750794694449-ao4.PNG",
+        "fileType": "image",
+        "status": "approved",
+        "points": 95,
+        "timestamp": "2025-06-24T19:51:34.500Z"
+      }
+    ]
+  },
+  {
+    "name": "simba",
+    "username": "sanni",
+    "email": "g@d.com",
+    "password": "12345",
+    "phone": "2464789650690",
+    "occupation": "Nurse",
+    "points": 1328,
+    "uploads": [
+      {
+        "id": 1750797163454,
+        "activityType": "Tree Planting",
+        "description": "electronics",
+        "filePath": "/uploads/1750797163441-temp.PNG",
+        "fileType": "image",
+        "status": "approved",
+        "points": 1320,
+        "timestamp": "2025-06-24T20:32:43.454Z"
+      }
+    ],
+    "profileImage": "uploads/profile/sanni.PNG"
+  }
+]

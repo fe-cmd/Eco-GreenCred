@@ -1,0 +1,193 @@
+.progress-container {
+  padding: 2rem;
+  max-width: 900px;
+  margin: auto;
+  font-family: 'Segoe UI', sans-serif;
+  background: rgb(5, 49, 5);
+  color: #000;
+}
+
+.progress-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.back-arrow {
+  color: black;
+  text-decoration: none;
+}
+
+.progress-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.prg {
+  display: flex;
+  flex-direction: column;
+}
+
+.par {
+  font-weight: 400;
+  background: rgb(253, 128, 10);
+  border-radius: 20px;
+  text-align: center;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  color: white;
+}
+
+.status-popup {
+  background-color: #e0ffe0;
+  color: #075e07;
+  border: 1px solid #61d161;
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.no-uploads {
+  color: #fff;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 3rem;
+  font-weight: 500;
+}
+
+.upload-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.upload-card {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+}
+
+.upload-image,
+video {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}
+
+.upload-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.7rem;
+  align-items: center;
+  font-weight: bold;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.activity-type {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.upload-description {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: #444;
+  text-align: center;
+}
+
+.upload-points {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  color: #f1c40f;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.coin-icon {
+  margin-right: 5px;
+}
+
+.status-badge {
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+}
+
+.vid-up{
+  object-fit: contain;
+}
+
+.status-badge.pending {
+  background-color: #fff8d0;
+  color: rgb(253, 128, 10);
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.status-badge.approved {
+  background-color: #d0ffe0;
+  color: rgb(5, 49, 5);
+}
+
+.status-badge.declined {
+  background-color: #ffd0d0;
+  color: rgb(110, 4, 4);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .progress-container {
+    padding: 1rem;
+  }
+
+  .progress-title {
+    font-size: 1.5rem;
+  }
+
+  .par {
+    font-size: 0.9rem;
+    padding: 0.4rem;
+  }
+
+  .upload-info {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .activity-type {
+    font-size: 1rem;
+  }
+
+  .status-badge {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .progress-title {
+    font-size: 1.2rem;
+  }
+
+  .par {
+    font-size: 0.85rem;
+  }
+
+  .upload-description {
+    font-size: 0.9rem;
+  }
+
+  .upload-points {
+    font-size: 0.9rem;
+  }
+}

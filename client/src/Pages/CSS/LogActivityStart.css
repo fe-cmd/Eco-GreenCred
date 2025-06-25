@@ -1,0 +1,66 @@
+.log-activity-start-container {
+  display: flex;
+  width: 100%;
+  max-width: 800px;
+  flex-direction: column;
+  justify-items: center;
+  justify-self: center;
+  align-self: center;
+  justify-content: center; /* vertically center */
+  align-items: center;     /* horizontally center */
+  text-align: center;
+  height: 100vh;
+  box-sizing: border-box;
+  background-color: #f5f5f5;
+}
+
+.eco-plus-icon {
+  font-size: 100px;
+  color: rgb(5, 49, 5);
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  transition: color 0.2s ease;
+}
+
+.eco-plus-icon:hover {
+  cursor: pointer;
+  color: rgb(253, 128, 10);
+}
+
+.eco-heading {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: rgb(5, 49, 5);
+  margin-bottom: 0.3rem;
+}
+
+.eco-subtext {
+  font-size: 1.5rem;
+  color: #000;
+  margin-bottom: 1.5rem; /* Reduced to bring Next button closer */
+  padding: 0 1rem;
+  font-weight: bold;
+}
+
+.progress-btn1 {
+  background: rgb(5, 49, 5);
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 5px;
+  font-weight: bold;
+  width: 100%;
+  max-width: 400px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.progress-btn1:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 128, 0, 0.2);
+  background: rgb(253, 128, 10);
+  color: rgb(5, 49, 5);
+}
+
+

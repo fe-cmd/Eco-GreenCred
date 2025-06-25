@@ -1,0 +1,127 @@
+/* Outer container with background is styled inline in JSX */
+.leaderboard-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #f2f2f2; /* fallback color */
+}
+
+/* Overlay content container (sits above background) */
+.leaderboard-overlay {
+  background-color: rgba(255, 255, 255, 0.85); /* translucent for readability */
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+/* Top bar with back arrow and title */
+.leaderboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.back-arrow {
+  position: absolute;
+  left: 0;
+  font-size: 24px;
+  cursor: pointer;
+  color: rgb(5, 49, 5);
+}
+
+/* Title */
+h2 {
+  font-size: 22px;
+  margin: 0;
+  text-align: center;
+}
+
+/* Toggle buttons for Weekly / Monthly */
+.toggle-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.toggle-buttons button {
+  padding: 8px 18px;
+  margin: 0 5px;
+  border-radius: 20px;
+  border: 1px solid rgb(5, 49, 5);
+  background-color: rgb(253, 128, 10);
+  cursor: pointer;
+  font-weight: bold;
+  color: rgb(5, 49, 5);
+  transition: all 0.3s ease;
+}
+
+.toggle-buttons .active {
+  background-color: rgb(5, 49, 5);
+  color: rgb(253, 128, 10);
+}
+
+/* Header row for Rank / Name / Points */
+.leaderboard-list-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  padding: 10px;
+  border-bottom: 2px solid #ccc;
+  font-size: 16px;
+}
+
+/* Each leaderboard row */
+.leaderboard-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 10px;
+  border-bottom: 1px solid #eee;
+  background-color: #fdfdfd;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.rank {
+  width: 30px;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+}
+
+/* User image and name */
+.user-info {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  margin-left: 10px;
+}
+
+.user-info img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 8px;
+  border: 2px solid #0a0;
+}
+
+.user-info span {
+  font-weight: 500;
+}
+
+/* Points area with coin icon */
+.points {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #333;
+  font-weight: bold;
+  font-size: 15px;
+}

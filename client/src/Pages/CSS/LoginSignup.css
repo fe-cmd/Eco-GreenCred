@@ -1,0 +1,141 @@
+/* Full-page background with mobile-aware image scaling */
+.background-wrapper {
+  width: 100%;
+  height: 100vh;
+  background-size: contain;
+  background-position: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .background-wrapper {
+    background-size: cover;
+  }
+}
+
+/* Semi-transparent dark overlay */
+.overlay-container {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Floating top left arrow + message */
+.grp2 {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.hi {
+  font-size: 14px;
+  color: white;
+  margin: 0;
+}
+
+/* Main form container */
+.login-signup-container {
+  max-width: 400px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 30px 25px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Title */
+.login-signup-title {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* Form layout */
+.login-signup-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-signup-input {
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border 0.2s ease;
+}
+
+.login-signup-input:focus {
+  border-color: rgb(253, 128, 10);
+  outline: none;
+}
+
+.login-signup-button {
+  padding: 12px;
+  font-size: 16px;
+  background-color: rgb(5, 49, 5);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-signup-button:hover {
+  background-color: rgb(253, 128, 10);
+  border: 2px solid rgb(5, 49, 5);
+}
+
+.login-signup-toggle {
+  margin-top: 15px;
+  text-align: center;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+.login-signup-toggle:hover {
+  color: #0056b3;
+}
+
+.login-signup-error {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Mobile tweaks */
+@media (max-width: 480px) {
+  .hi {
+    font-size: 12px;
+  }
+
+  .login-signup-container {
+    padding: 25px 20px;
+  }
+
+  .login-signup-input {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+}

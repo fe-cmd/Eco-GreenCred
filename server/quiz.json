@@ -1,0 +1,202 @@
+[
+  {
+    "question": "Which principle best defines true sustainability?",
+    "options": [
+      "Meeting today's needs without compromising future generations",
+      "Reducing greenhouse gas emissions only",
+      "Recycling everything we use",
+      "Banning all plastic products"
+    ],
+    "answer": "Meeting today's needs without compromising future generations"
+  },
+  {
+    "question": "What does the concept of a 'circular economy' primarily aim to replace?",
+    "options": [
+      "Government regulation",
+      "Traditional farming",
+      "Linear 'take-make-dispose' models",
+      "Renewable energy systems"
+    ],
+    "answer": "Linear 'take-make-dispose' models"
+  },
+  {
+    "question": "Which of the following sectors contributes the most to global greenhouse gas emissions?",
+    "options": [
+      "Transportation",
+      "Agriculture and Land Use",
+      "Energy Production",
+      "Fashion Industry"
+    ],
+    "answer": "Energy Production"
+  },
+  {
+    "question": "Why is biodiversity important for sustainability?",
+    "options": [
+      "It provides more aesthetic value to nature",
+      "It boosts tourism and recreational profits",
+      "It stabilizes ecosystems and ensures resilience",
+      "It decreases the amount of land humans need"
+    ],
+    "answer": "It stabilizes ecosystems and ensures resilience"
+  },
+  {
+    "question": "Which energy source is considered renewable, but still raises sustainability concerns due to land use and food competition?",
+    "options": [
+      "Solar",
+      "Wind",
+      "Bioenergy (e.g., biofuels)",
+      "Geothermal"
+    ],
+    "answer": "Bioenergy (e.g., biofuels)"
+  },
+  {
+    "question": "What is meant by 'greenwashing'?",
+    "options": [
+      "Cleaning products with environmentally safe chemicals",
+      "A method of carbon capture",
+      "Misleading marketing to appear more environmentally friendly than a company really is",
+      "A water-saving farming practice"
+    ],
+    "answer": "Misleading marketing to appear more environmentally friendly than a company really is"
+  },
+  {
+    "question": "What does ESG stand for in sustainability reporting?",
+    "options": [
+      "Environmental, Social, and Government",
+      "Emissions, Sustainability, and Governance",
+      "Environmental, Social, and Governance",
+      "Energy, Society, and Growth"
+    ],
+    "answer": "Environmental, Social, and Governance"
+  },
+  {
+    "question": "Which of the following most effectively promotes long-term sustainable behavior in communities?",
+    "options": [
+      "Strict penalties",
+      "One-time awareness events",
+      "Gamification and local ownership of environmental goals",
+      "Recycling campaigns alone"
+    ],
+    "answer": "Gamification and local ownership of environmental goals"
+  },
+  {
+    "question": "What does 'net-zero emissions' mean?",
+    "options": [
+      "No emissions are allowed",
+      "Carbon emissions are equal to zero production",
+      "Any emissions produced are balanced by removal or offset",
+      "Only renewable energy is used"
+    ],
+    "answer": "Any emissions produced are balanced by removal or offset"
+  },
+  {
+    "question": "Why is it more sustainable to repair and reuse than to recycle?",
+    "options": [
+      "Recycling always uses more water",
+      "Repair and reuse prevent resource extraction and reduce energy consumption",
+      "Recycling is illegal in many places",
+      "Reuse produces tax credits"
+    ],
+    "answer": "Repair and reuse prevent resource extraction and reduce energy consumption"
+  },
+  {
+    "question": "Which of the following best describes 'climate justice'?",
+    "options": [
+      "Equal distribution of carbon taxes across countries",
+      "Holding industrial nations accountable for all emissions",
+      "Addressing the disproportionate impacts of climate change on vulnerable communities",
+      "Prioritizing environmental education in rural schools"
+    ],
+    "answer": "Addressing the disproportionate impacts of climate change on vulnerable communities"
+  },
+  {
+    "question": "What is the role of afforestation in climate mitigation?",
+    "options": [
+      "Increasing biodiversity",
+      "Generating hydroelectric power",
+      "Capturing carbon dioxide from the atmosphere",
+      "Improving ocean salinity levels"
+    ],
+    "answer": "Capturing carbon dioxide from the atmosphere"
+  },
+  {
+    "question": "Which international agreement is aimed at limiting global warming to well below 2°C?",
+    "options": [
+      "Rio Earth Summit",
+      "Kyoto Protocol",
+      "Montreal Protocol",
+      "Paris Agreement"
+    ],
+    "answer": "Paris Agreement"
+  },
+  {
+    "question": "What does SDG 13 in the UN Sustainable Development Goals address?",
+    "options": [
+      "Clean Water and Sanitation",
+      "Climate Action",
+      "Responsible Consumption",
+      "Life Below Water"
+    ],
+    "answer": "Climate Action"
+  },
+  {
+    "question": "What’s the biggest challenge of solar energy in remote African regions?",
+    "options": [
+      "Lack of sunlight",
+      "Affordability and storage infrastructure",
+      "Government policies",
+      "Training people to use it"
+    ],
+    "answer": "Affordability and storage infrastructure"
+  },
+  {
+    "question": "Which of the following practices contributes most to food system sustainability?",
+    "options": [
+      "Exporting local produce",
+      "Using genetically modified crops",
+      "Reducing food waste across the supply chain",
+      "Increasing chemical fertilizer usage"
+    ],
+    "answer": "Reducing food waste across the supply chain"
+  },
+  {
+    "question": "What is the goal of sustainable consumption?",
+    "options": [
+      "To produce everything locally",
+      "To ensure that products are affordable",
+      "To use fewer resources and generate less waste",
+      "To boycott large corporations"
+    ],
+    "answer": "To use fewer resources and generate less waste"
+  },
+  {
+    "question": "Why is e-waste a growing sustainability issue?",
+    "options": [
+      "It creates more jobs",
+      "Electronics decompose easily",
+      "Toxic components can pollute land and water",
+      "It helps in recycling metals easily"
+    ],
+    "answer": "Toxic components can pollute land and water"
+  },
+  {
+    "question": "In behavioral science, which strategy most effectively encourages sustainable action?",
+    "options": [
+      "Guilt-based messaging",
+      "Reward and social proof mechanisms",
+      "Complex statistics",
+      "Restricting consumer choice"
+    ],
+    "answer": "Reward and social proof mechanisms"
+  },
+  {
+    "question": "What makes water a critical sustainability focus?",
+    "options": [
+      "It is equally available to all people",
+      "It cannot be polluted",
+      "It supports all life and is under stress from overuse and contamination",
+      "Oceans are unlimited sources of clean water"
+    ],
+    "answer": "It supports all life and is under stress from overuse and contamination"
+  }
+]

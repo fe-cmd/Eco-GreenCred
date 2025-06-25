@@ -1,0 +1,296 @@
+.dashboard-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 1.5rem;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.greeting h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+
+.greeting h2 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.profile-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.profile-left {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.profile-pic {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.camera-icon {
+  position: absolute;
+  bottom: 0;
+  right: -8px;
+  background-color: white;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+.logout-text-btn {
+  background-color: rgb(5, 49, 5);
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-text-btn:hover {
+  background-color: rgb(253, 128, 10);
+  color: rgb(5, 49, 5);
+}
+
+.points-card {
+  background: #f0f0f0;
+  padding: 1.2rem;
+  border-radius: 12px;
+  margin: 2rem 0 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.points-value {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+}
+
+.dashboard-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.action-card {
+  flex: 1;
+  min-width: 140px;
+  background: #ffffff;
+  border: 2px dashed rgb(253, 128, 10);
+  padding: 1.2rem;
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.action-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 128, 0, 0.2);
+}
+
+.action-icon {
+  color: #004400;
+  margin-bottom: 0.5rem;
+}
+
+.action-text {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #004400;
+}
+
+.tip-box, .quiz-box {
+  background: #ffffff;
+  padding: 1rem;
+  border: 2px dashed rgb(5, 49, 5);
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.tip-box h4, .quiz-box h4 {
+  font-size: 1.2rem;
+  color: rgb(5, 49, 5);
+  margin-bottom: 0.5rem;
+}
+
+.tip-box p, .quiz-box p {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.bla {
+  justify-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-self: center;
+  gap: 20px;
+}
+
+.mains{
+  width: 100%;
+  max-width: 400px;
+  max-height: 300px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+.quiz-btn {
+  background: rgb(5, 49, 5);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.quiz-btn:hover {
+  background: rgb(253, 128, 10);
+  color: rgb(5, 49, 5);
+}
+
+.progress-btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.progress-btn, .progress-btn3 {
+  flex: 1;
+  max-width: 300px;
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
+}
+
+.progress-btn {
+  background: rgb(5, 49, 5);
+  color: white;
+}
+
+.progress-btn3 {
+  background: rgb(253, 128, 10);
+  color: white;
+}
+
+.progress-btn:hover,
+.progress-btn3:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 128, 0, 0.2);
+}
+
+.progress-btn2 {
+  background: rgb(5, 49, 5);
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 10px;
+  font-weight: bold;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto 20px auto;
+  font-size: 1rem;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
+}
+
+.progress-btn2:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 128, 0, 0.2);
+  background: rgb(253, 128, 10);
+  color: rgb(5, 49, 5);
+}
+
+/* Responsive */
+
+@media (max-width: 580px) {
+  .bla {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .greeting h1 {
+    font-size: 1.7rem;
+  }
+
+  .bla{
+    flex-direction: column;
+  }
+
+  .greeting h2 {
+    font-size: 1.5rem;
+  }
+
+  .points-value {
+    font-size: 1.8rem;
+  }
+
+  .profile-pic {
+    width: 50px;
+    height: 50px;
+  }
+
+  .progress-btn,
+  .progress-btn2,
+  .progress-btn3 {
+    max-width: 100%;
+    font-size: 0.95rem;
+  }
+
+  .quiz-btn {
+    font-size: 0.9rem;
+    padding: 0.7rem 1rem;
+  }
+
+  .progress-btn-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
