@@ -4,6 +4,8 @@ import { FaPlusCircle, FaGift, FaCoins, FaCamera, FaSignOutAlt } from "react-ico
 import './CSS/Dashboard.css';
 import ec28 from '../Components/Assets/ec28.png'; // ✅ JSX-based background image
 import ec13 from '../Components/Assets/ec13.png'; // ✅ JSX-based background image
+import ec32 from '../Components/Assets/ec32.png'; // Adjust path if different
+
 
 
 const API = process.env.REACT_APP_API || "";
@@ -128,6 +130,11 @@ const Dashboard = () => {
        <div className="quiz-box">
         <h4>Eco-GreenCred Challenges you</h4>
         <p>Take our Quiz to earn more <FaCoins color="#FFD700" size={30} /> points, to see how knowledgeable you are.</p>
+         <img
+                  src={ec32}
+                  alt="lad"
+                  className="mainz"
+                />
         <button className="quiz-btn" onClick={() => navigate(`/quiz-intro/${username}`)}>Access Quiz!</button>
       </div>
 

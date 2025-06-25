@@ -249,6 +249,18 @@
 
 /* Responsive */
 
+.mainz{
+  width: 100%;
+  display: flex;
+  border-radius: 20px;
+  max-width: 300px;
+  max-height: 300px;
+  justify-self: center;
+  align-self: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
 @media (max-width: 580px) {
   .bla {
     flex-direction: column;
