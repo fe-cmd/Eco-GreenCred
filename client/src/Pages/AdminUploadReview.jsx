@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { FaArrowLeft, FaCheckCircle, FaTimesCircle, FaCoins } from "react-icons/fa";
 import "./CSS/AdminUploadReview.css";
 
-const API = "http://localhost:5000";
+const API = process.env.REACT_APP_API || "";
 
 const AdminUploadReview = () => {
   const { username, uploadId } = useParams();

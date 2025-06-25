@@ -4,6 +4,9 @@ import { FiArrowLeft, FiPlus } from "react-icons/fi";
 import './CSS/UploadActivity.css';
 import { Link } from 'react-router-dom';
 
+const API = process.env.REACT_APP_API || "";
+
+
 
 const UploadActivity = () => {
   const navigate = useNavigate();
@@ -50,7 +53,7 @@ const UploadActivity = () => {
     formData.append("file", file);
 
     try {
-      const res = await fetch("http://localhost:5000/upload-activity", {
+      const res = await fetch(`${API}/upload-activity`, {
         method: "POST",
         body: formData,
       });

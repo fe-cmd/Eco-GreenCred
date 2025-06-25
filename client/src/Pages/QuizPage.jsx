@@ -3,6 +3,9 @@ import { useNavigate, useParams } from 'react-router-dom';
 import './CSS/QuizPage.css';
 import ec32 from '../Components/Assets/ec32.png'; // Adjust path if different
 
+const API = process.env.REACT_APP_API || "";
+
+
 const QuizPage = () => {
   const [questions, setQuestions] = useState([]);
   const [selectedOptions, setSelectedOptions] = useState([]);
@@ -16,7 +19,7 @@ const QuizPage = () => {
   useEffect(() => {
     const fetchQuiz = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/quiz/start/${username}`);
+        const res = await fetch(`${API}/quiz/start/${username}`);
         const data = await res.json();
         if (data.message) {
           alert(data.message);
@@ -62,7 +65,7 @@ const QuizPage = () => {
     setSubmitted(true);
 
     try {
-      await fetch(`http://localhost:5000/quiz/submit/${username}`, {
+      await fetch(`${API}/quiz/submit/${username}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ answers: answersPayload })

@@ -13,8 +13,11 @@ const EarningInfo = () => {
   const [points, setPoints] = useState(0);
   const conversionRate = 1;
 
+  const API = process.env.REACT_APP_API || "";
+  
+
   useEffect(() => {
-    fetch(`http://localhost:5000/user/${username}`)
+    fetch(`${API}/user/${username}`)
       .then(res => res.json())
       .then(data => setPoints(data.points || 0))
       .catch(err => console.error(err));

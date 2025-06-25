@@ -6,7 +6,7 @@ import ec28 from '../Components/Assets/ec28.png'; // ✅ JSX-based background im
 import ec13 from '../Components/Assets/ec13.png'; // ✅ JSX-based background image
 
 
-const API = "http://localhost:5000";
+const API = process.env.REACT_APP_API || "";
 
 const tipsList = [
   "🌱 Turn off lights when not in use.",

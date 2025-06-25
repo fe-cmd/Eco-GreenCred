@@ -4,7 +4,7 @@ import { FaCoins } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
 import "./CSS/ViewProgress.css";
 
-const API = "http://localhost:5000";
+const API = process.env.REACT_APP_API || "";
 
 const ViewProgress = () => {
   const { username } = useParams();

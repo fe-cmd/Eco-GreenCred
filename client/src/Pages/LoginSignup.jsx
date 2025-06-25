@@ -4,7 +4,7 @@ import { FiArrowLeft } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import ec29 from '../Components/Assets/ec29.png'; // ✅ Import the background image
 
-const API = "http://localhost:5000";
+const API = process.env.REACT_APP_API || "";
 
 const LoginSignup = () => {
   const [isLogin, setIsLogin] = useState(true);

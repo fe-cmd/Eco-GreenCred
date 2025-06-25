@@ -1,9 +1,12 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcrypt');
 const multer = require('multer');
+const PORT = process.env.PORT || 5000;
+
 
 
 
@@ -20,7 +23,6 @@ app.get = function (path, ...rest) {
   }
 };
 
-const PORT = 5000;
 const USERS_FILE = path.join(__dirname, 'users.json');
 const ADMIN_FILE = path.join(__dirname, 'admin.json');
 const PROFILE_DIR = path.join(__dirname, 'uploads/profile');

@@ -4,7 +4,7 @@ import { FaCamera } from "react-icons/fa";
 import "./CSS/AdminDashboard.css";
 import ec28 from '../Components/Assets/ec28.png'; // ✅ JSX-based background image
 
-const API = "http://localhost:5000";
+const API = process.env.REACT_APP_API || "";
 
 const AdminDashboard = () => {
   const navigate = useNavigate();

@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 
 import './CSS/AdminLogin.css';
 
+const API = process.env.REACT_APP_API || "";
+
 
 const AdminLogin = () => {
   const [adminName, setAdminName] = useState("");
@@ -18,7 +20,7 @@ const AdminLogin = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost:5000/admin-login", {
+      const res = await fetch(`${API}/admin-login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username: adminName, password }),

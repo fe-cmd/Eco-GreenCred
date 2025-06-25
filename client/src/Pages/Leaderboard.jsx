@@ -5,7 +5,7 @@ import './CSS/Leaderboard.css';
 import ec24 from '../Components/Assets/ec24.png';
 
 
-const API = "http://localhost:5000";
+const API = process.env.REACT_APP_API || "";
 
 const Leaderboard = () => {
   const { username } = useParams();
