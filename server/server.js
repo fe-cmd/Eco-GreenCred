@@ -8,6 +8,18 @@ const multer = require('multer');
 
 
 const app = express();
+
+const originalAppGet = app.get;
+app.get = function (path, ...rest) {
+  try {
+    console.log("Registering route:", path);
+    return originalAppGet.call(this, path, ...rest);
+  } catch (err) {
+    console.error("Error on route:", path);
+    throw err;
+  }
+};
+
 const PORT = 5000;
 const USERS_FILE = path.join(__dirname, 'users.json');
 const ADMIN_FILE = path.join(__dirname, 'admin.json');
@@ -211,14 +223,7 @@ app.get('/check-status/:username', (req, res) => {
   return res.json({});
 });
 
-app.get('/user/:username', (req, res) => {
-  const users = getUsers(); // reads users.json
-  const user = users.find(u => u.username === req.params.username);
 
-  if (!user) return res.status(404).json({ message: "User not found." });
-
-  res.json(user); // returns full user object
-});
 
 
 
@@ -369,6 +374,7 @@ app.get('/user/:username', (req, res) => {
   if (!user) return res.status(404).json({ message: "User not found." });
   res.json(user);
 });
+
 
 app.get('/leaderboard', (req, res) => {
   const range = req.query.range || 'all'; // "weekly", "monthly", or "all"
