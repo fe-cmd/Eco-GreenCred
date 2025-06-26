@@ -20,6 +20,7 @@ const UploadActivity = () => {
   const activityOptions = [
     "Wildlife Conservation",
     "Tree Planting",
+    "EcoGreen Outreach",
     "Recycling",
     "Waste Collection",
     "Beach Cleanup",

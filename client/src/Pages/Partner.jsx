@@ -14,7 +14,7 @@ const Partner = () => {
 
      <>
            <div className='grp'>            
-              <Link to={`/dashboard/${username}`} style={{ textDecoration: "none" }}>
+              <Link to="/" style={{ textDecoration: "none" }}>
                <div className="back-arrow">
                   <FiArrowLeft size={24} />
                 </div></Link> 

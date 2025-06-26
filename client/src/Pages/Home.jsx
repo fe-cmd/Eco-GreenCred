@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import './CSS/Home.css';
 import { Link } from 'react-router-dom';
 import { AnimatePresence, motion } from "framer-motion";
+import { useParams, useNavigate } from "react-router-dom";
 import bg from '../Components/Assets/bg.png';
 import ec1 from '../Components/Assets/ec1.png';
 import ec2 from '../Components/Assets/ec2.png';
@@ -69,11 +70,13 @@ const slideVariants = {
 
 
 const Home = () => {
-  const [index, setIndex] = useState(0);  
+const [index, setIndex] = useState(0);  
 const topRef = useRef(null);
 const bottomRef = useRef(null);
 const [topInView, setTopInView] = useState(false);
 const [bottomInView, setBottomInView] = useState(false);
+const { username } = useParams();
+const navigate = useNavigate();
 
 useEffect(() => {
 
@@ -212,6 +215,9 @@ Eco-GreenCred solves this by turning everyday green behaviors into trackable poi
 </div>
        
       <Teams/>
+
+        <button className="progress-btn4" onClick={() => navigate(`/partner/${username}/start`)}>Partner with Eco-GreenCred</button>
+
 
 
       <h1>Hello World!!!</h1>

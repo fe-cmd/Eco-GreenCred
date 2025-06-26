@@ -38,6 +38,7 @@
     transform-origin: top left;  /* Ensure scaling happens from the top-left */
     transition: transform 0.3s ease, width 0.3s ease;
     margin-top: 100px;
+    margin-bottom: 50px;
     border-radius: 20px;
   }
   
@@ -123,7 +124,7 @@
     }
 
     .layout-container {
-      margin-bottom: -400px;
+      margin-bottom: -300px;
         transform: scale(0.7);
         width: calc(960px * 0.7); /* Maintain aspect ratio while scaling */
       }

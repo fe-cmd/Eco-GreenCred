@@ -29,8 +29,8 @@ function Mode() {
           </Link>
         </div>
 
-      <h2>Choose Mode</h2>
-      <p>Dear Users choose the box applicable to You. Note: Do not choose the Admin box</p>
+      <h2 className='int'>Choose Mode</h2>
+      <p className='int'>Dear Users choose the box applicable to You. Note!: Admin box is restricted from users</p>
 
       <div className="mode-options">
         <div

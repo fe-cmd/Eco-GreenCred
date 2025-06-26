@@ -4,10 +4,15 @@
     padding: 20px 30px;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    background: #ffffff;
+    background: rgb(5, 49, 5);
     justify-content: center;
     align-items: center;
     justify-self: center;
+    
+  }
+
+  .int{
+    color: white;
   }
   
   .top-bar {

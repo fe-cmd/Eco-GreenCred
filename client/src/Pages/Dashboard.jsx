@@ -140,7 +140,6 @@ const Dashboard = () => {
 
       <div className="progress-btn-group">
         <button className="progress-btn" onClick={() => navigate(`/progress/${username}`)}>View Progress</button>
-        <button className="progress-btn3" onClick={() => navigate(`/partner/${username}/start`)}>Partner with Eco-GreenCred</button>
       </div>
 
       <button className="progress-btn2" onClick={() => navigate(`/leaderboard/${username}`)}>
