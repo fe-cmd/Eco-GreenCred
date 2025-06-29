@@ -37,7 +37,7 @@ const Footer = () => {
           <h2>Contact</h2>
           <button><FiMapPin style={{ marginRight: '8px', fontSize: '20px', color: 'rgb(253, 128, 10)' }} /> Lagos, Nigeria</button>
           <button><FiPhone style={{ marginRight: '8px', fontSize: '20px', color: 'rgb(253, 128, 10)' }} /> +234(0)7044765385</button>
-          <button><FiMail style={{ marginRight: '8px', fontSize: '20px', color: 'rgb(253, 128, 10)' }} /> oluferonmijoshua@gmail.com </button>
+          <button><FiMail style={{ marginRight: '8px', fontSize: '20px', color: 'rgb(253, 128, 10)' }} /> samueloluola.a@gmail.com </button>
         </div>
       </div>
     </div>

@@ -54,7 +54,7 @@ const Contact = () => {
       </button>
       <button className='but'>
         <FiMail className='gru' />
-        oluferonmijoshua@gmail.com
+        samueloluola.a@gmail.com
       </button>
     </div>
   </div>
