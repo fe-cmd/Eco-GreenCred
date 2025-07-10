@@ -132,12 +132,45 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+@media (max-width: 768px) {
+   .back-arrow3 {
+    margin-left: 20px;
+  }
+
+  .eco-icons{
+    margin-left: 100px;
+  }
+}
 @media (max-width: 480px) {
   .eco-card-top, .eco-preview-box {
     margin: .5rem;
     padding: .8rem;
   }
   .eco-profile { width: 30px; height: 30px; }
+
+  .eco-card-top{ 
+    margin-top: 100px;
+    max-width: 300px;
+  }
+
+  .eco-icons{
+    margin-left: 30px;
+  }
+
+.eco-feed{
+  max-width: 300px;
+}
+}
+
+@media (max-width: 360px) {
+  .eco-card-top, .eco-preview-box {
+    margin: .5rem;
+    padding: .8rem;
+  }
+  .eco-profile { width: 30px; height: 30px; }
+
+  .eco-card-top{ margin-top: 50px;}
 }
 
 @media (max-width: 768px) {

@@ -6,6 +6,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { FiCamera, FiVideo, FiHeart, FiMessageCircle, FiDownload } from 'react-icons/fi';
 import { FaThumbsUp } from 'react-icons/fa';
 import social from '../Components/Assets/social.png';
+import ec32 from '../Components/Assets/ec32.png';
 
 import { io } from 'socket.io-client';
 
@@ -181,7 +182,7 @@ const handleSubmitReply = async (postId, commentIndex) => {
 };
 
   return (
-    <div className="eco-container" style={{ backgroundImage: `url(${ec32})` }}>
+    <div className="eco-container" style={{ backgroundImage: `url(${social})` }}>
       <Navbar />
 
       <div className="eco-card-top">
