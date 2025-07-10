@@ -1,0 +1,151 @@
+.eco-container {
+  width: 100%;
+  min-height: 100vh;
+  background-size: fit;
+  background-position: center;
+  background-repeat: repeat;
+}
+
+.back-arrow3 {
+  position: absolute;
+  left: 0;
+  font-size: 40px;
+  cursor: pointer;
+  color: rgb(255, 183, 10);
+  background: rgb(5,49,5);
+  border-radius: 50px;
+}
+
+.eco-card-top {
+  max-width: 800px;
+  margin: 1rem auto;
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: rgba(255,255,255,0.9);
+  border-radius: 12px;
+}
+.eco-icons label {
+  cursor: pointer;
+  margin-right: .8rem;
+  font-size: 1.6rem;
+}
+.eco-icons input {
+  display: none;
+}
+.eco-info h3 {
+  margin: 0;
+  color: rgb(5,49,5);
+}
+.eco-feed {
+  max-width: 800px;
+  margin: 1rem auto;
+}
+.eco-post {
+  background-color: rgba(255,255,255,0.92);
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: rgba(0,0,0,0.1) 0 2px 4px;
+}
+.eco-header {
+  display: flex;
+  align-items: center;
+  padding: .8rem;
+}
+.eco-profile {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: .6rem;
+}
+.eco-name { font-weight: bold; color: #333; }
+.eco-media, .eco-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+}
+.eco-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.eco-caption {
+  padding: .8rem;
+  color: #333;
+}
+.eco-actions {
+  display: flex;
+  justify-content: space-around;
+  padding: .6rem;
+  border-top: 1px solid #ddd;
+}
+.eco-actions div {
+  display: flex;
+  align-items: center;
+  gap: .3rem;
+  cursor: pointer;
+  font-weight: 500;
+  color: rgb(5,49,5);
+}
+.eco-comments {
+  padding: .8rem;
+  background: #f9f9f9;
+}
+.eco-comment, .eco-reply {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  margin-bottom: .4rem;
+}
+.eco-reply {
+  margin-left: 2rem;
+}
+.eco-preview-box {
+  max-width: 800px;
+  margin: 1rem auto;
+  padding: 1rem;
+  background: rgba(255,255,255,0.9);
+  border-radius: 10px;
+}
+.eco-preview {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  margin-bottom: .8rem;
+}
+.eco-preview-box textarea {
+  width: 100%;
+  padding: .5rem;
+  margin-bottom: .8rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.eco-preview-box button {
+  background: rgb(5,49,5);
+  color: white;
+  border: none;
+  padding: .7rem 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+@media (max-width: 480px) {
+  .eco-card-top, .eco-preview-box {
+    margin: .5rem;
+    padding: .8rem;
+  }
+  .eco-profile { width: 30px; height: 30px; }
+}
+
+@media (max-width: 768px) {
+.eco-container {
+  width: 100%;
+  min-height: 100vh;
+  background-size: fit;
+  background-position: center;
+  background-repeat: repeat-y;
+}
+}

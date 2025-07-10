@@ -1,0 +1,73 @@
+/* Use same layout as leaderboard */
+.leaderboard-container2 {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+margin-top: 100px;  
+justify-content: center;
+  align-items: flex-start;
+  background-color: #f2f2f2;
+}
+
+/* Semi-transparent white overlay */
+.leaderboard-overlay2 {
+  background-color: rgba(255, 255, 255, 0.85);
+  width: 100%;
+  margin-top: 100px;
+  max-width: 800px;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+/* Top bar with back arrow */
+.leaderboard-header2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.back-arrow4 {
+  position: absolute;
+  left: 0;
+  font-size: 24px;
+  cursor: pointer;
+  color: rgb(5, 49, 5);
+}
+
+/* Partner content block */
+.partner-content {
+  text-align: center;
+}
+
+.eco-heading {
+  font-size: 28px;
+  font-weight: bold;
+  color: rgb(5, 49, 5);
+  margin-bottom: 15px;
+}
+
+.eco-subtext {
+  font-size: 16px;
+  color: #333;
+  margin: 20px 0;
+  line-height: 1.5;
+}
+
+.progress-btn1 {
+  background-color: rgb(5, 49, 5);
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.progress-btn1:hover {
+  background-color: rgb(253, 128, 10);
+  border: 2px solid rgb(5, 49, 5);
+}

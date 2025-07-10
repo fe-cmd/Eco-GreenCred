@@ -22,7 +22,8 @@ import Partner from './Pages/Partner';
 import QuizIntro from './Pages/QuizIntro';
 import QuizPage from './Pages/QuizPage';
 import QuizResultPage from './Pages/QuizResultPage';
-
+import ForgotPassword from './Pages/ForgotPassword'; 
+import EcoSpace from './Pages/EcoSpace';
 
 
 
@@ -44,7 +45,7 @@ function App() {
       <Route path='/dashboard/:username' element={<Dashboard/>}/>
       <Route path='/log-activity/:username/start' element={<LogActivityStart/>}/>
       <Route path='/rewards/:username/start' element={<Redeem/>}/>
-      <Route path='/partner/:username/start' element={<Partner/>}/>
+      <Route path='/partner' element={<Partner/>}/>
       <Route path="/log-activity/:username/upload" element={<UploadActivity />} />
       <Route path="/progress/:username" element={<ViewProgress />} />
       <Route path="/admin/dashboard" element={<AdminDashboard />} /> 
@@ -54,6 +55,9 @@ function App() {
       <Route path="/quiz-intro/:username" element={<QuizIntro />} />
       <Route path="/quiz/:username/start" element={<QuizPage />} /> {/* your quiz interface */}
       <Route path="/quiz/:username/result" element={<QuizResultPage />} />
+      <Route path="/eco-space/:username" element={<EcoSpace />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
+
 
 
 

@@ -4,7 +4,7 @@ import { FaCoins } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
 import "./CSS/ViewProgress.css";
 
-const API = process.env.REACT_APP_API || "";
+const API = process.env.REACT_APP_API || "http://localhost:5000";
 
 const ViewProgress = () => {
   const { username } = useParams();
@@ -12,8 +12,10 @@ const ViewProgress = () => {
   const [userPoints, setUserPoints] = useState(0);
   const [statusMessage, setStatusMessage] = useState("");
 
+  // popup state
+  const [popupImage, setPopupImage] = useState(null);
+
   useEffect(() => {
-    // Initial load: fetch all user data including points
     fetch(`${API}/user/${username}`)
       .then((res) => res.json())
       .then((data) => {
@@ -21,7 +23,6 @@ const ViewProgress = () => {
         setUserPoints(data.points || 0);
       });
 
-    // Poll every 5s to check if upload was approved or declined
     const interval = setInterval(() => {
       fetch(`${API}/check-status/${username}`)
         .then((res) => res.json())
@@ -29,7 +30,6 @@ const ViewProgress = () => {
           if (data.message) {
             setStatusMessage(data.message);
 
-            // Refresh uploads after update
             fetch(`${API}/user/${username}`)
               .then((res) => res.json())
               .then((data) => {
@@ -45,11 +45,19 @@ const ViewProgress = () => {
     return () => clearInterval(interval);
   }, [username]);
 
+  const handleImageClick = (imgUrl) => {
+    setPopupImage(imgUrl);
+  };
+
+  const closePopup = () => {
+    setPopupImage(null);
+  };
+
   return (
     <div className="progress-container">
       <div className="progress-header">
         <Link to={`/dashboard/${username}`} className="back-arrow">
-          <FiArrowLeft size={24} />
+          <FiArrowLeft size={24}  style={{ color:"orange"}}/>
         </Link>
         <div className="prg">
           <h2 className="progress-title">Your Uploaded Items</h2>
@@ -71,19 +79,32 @@ const ViewProgress = () => {
         </p>
       ) : (
         <div className="upload-list">
-          {uploads.map((upload) => (
-            <div key={upload.id} className="upload-card">
+          {uploads.map((upload, i) => (
+            <div key={i} className="upload-card">
               {upload.fileType === "video" ? (
                 <video
                   src={upload.filePath}
                   controls={upload.status === "approved"}
-                  width="100%"
-                 className="vid-up"/>
+                  className="vid-up"
+                />
+              ) : Array.isArray(upload.filePath) ? (
+                <div className="image-group">
+                  {upload.filePath.map((img, index) => (
+                    <img
+                      key={index}
+                      src={img}
+                      alt={`Group ${i}-${index}`}
+                      className="group-image-thumb"
+                      onClick={() => handleImageClick(img)}
+                    />
+                  ))}
+                </div>
               ) : (
                 <img
                   src={upload.filePath}
                   alt="Upload preview"
                   className="upload-image"
+                  onClick={() => handleImageClick(upload.filePath)}
                 />
               )}
 
@@ -105,6 +126,12 @@ const ViewProgress = () => {
               <p className="upload-description">{upload.description}</p>
             </div>
           ))}
+        </div>
+      )}
+
+      {popupImage && (
+        <div className="image-popup-overlay" onClick={closePopup}>
+          <img src={popupImage} alt="Enlarged" className="image-popup-content" />
         </div>
       )}
     </div>

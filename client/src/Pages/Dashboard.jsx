@@ -8,7 +8,7 @@ import ec32 from '../Components/Assets/ec32.png'; // Adjust path if different
 
 
 
-const API = process.env.REACT_APP_API || "";
+const API = process.env.REACT_APP_API || "http://localhost:5000";
 
 const tipsList = [
   "🌱 Turn off lights when not in use.",
@@ -49,6 +49,8 @@ const Dashboard = () => {
 
   const handleLogout = () => navigate('/');
 
+const handlePost = () => navigate(`/eco-space/${username}`);
+
   const handleImageChange = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -79,6 +81,7 @@ const Dashboard = () => {
           <h2>{firstName}</h2>
         </div>
         <div className="profile-wrapper">
+                  <button className="logout-text-btn" onClick={handlePost}>ECO BLOGPOST</button>
           <div className="profile-left">
             <img src={previewImage} alt="Profile" className="profile-pic" />
             <label htmlFor="upload" className="camera-icon" title="Change Photo">

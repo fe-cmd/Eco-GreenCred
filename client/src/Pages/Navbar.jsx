@@ -47,9 +47,18 @@ const Navbar = () => {
   </Link>
 
   <Link to="/teams_expertise" style={{ textDecoration: "none" }}>
-    <li  onClick={() => handleLinkClick('contact')}
-      className={activeLink === 'contact' ? 'active' : ''}>
+    <li  onClick={() => handleLinkClick('teams')}
+      className={activeLink === 'teams' ? 'active' : ''}>
       TEAMS
+    </li>
+  </Link>
+
+ 
+  
+  <Link to="/partner" style={{ textDecoration: "none" }}>
+    <li  onClick={() => handleLinkClick('support')}
+      className={activeLink === 'support' ? 'active' : ''}>
+      SUPPORT US
     </li>
   </Link>
   

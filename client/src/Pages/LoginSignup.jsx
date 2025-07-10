@@ -4,7 +4,7 @@ import { FiArrowLeft } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import ec29 from '../Components/Assets/ec29.png'; // ✅ Import the background image
 
-const API = process.env.REACT_APP_API || "";
+const API = process.env.REACT_APP_API || "http://localhost:5000";
 
 const LoginSignup = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -96,6 +96,11 @@ const LoginSignup = () => {
           <p onClick={toggleMode} className="login-signup-toggle">
             {isLogin ? "New here? Sign Up" : "Already registered? Login"}
           </p>
+          {isLogin && (
+  <Link to="/forgot-password" style={{ textAlign: 'center', display: 'block', marginTop: '10px', fontSize: '14px', color: '#007bff', textDecoration: 'underline' }}>
+    Forgot password?
+  </Link>
+)}
         </div>
       </div>
     </div>

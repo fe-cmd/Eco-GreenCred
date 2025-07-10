@@ -216,7 +216,6 @@ Eco-GreenCred solves this by turning everyday green behaviors into trackable poi
        
       <Teams/>
 
-        <button className="progress-btn4" onClick={() => navigate(`/partner/${username}/start`)}>Partner with Eco-GreenCred</button>
 
 
 

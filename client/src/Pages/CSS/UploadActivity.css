@@ -122,3 +122,17 @@
 .submit-button:hover {
   background-color: rgb(253, 128, 10);
 }
+
+.upload-preview-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.upload-preview-group img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+

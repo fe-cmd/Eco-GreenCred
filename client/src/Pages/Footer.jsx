@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import React from 'react';
 import el from '../Components/Assets/el.png';
 import { FiMapPin, FiPhone, FiMail } from 'react-icons/fi';
-import { FaRegCopyright, FaUsers  } from 'react-icons/fa';
+import { FaRegCopyright, FaUsers, FaHandsHelping   } from 'react-icons/fa';
 
 
 const Footer = () => {
@@ -23,6 +23,10 @@ const Footer = () => {
           <h2>Our Team</h2>
           <Link to="/teams_expertise" style={{ textDecoration: "none" }}>
             <button><FaUsers style={{ marginRight: '8px', fontSize: '30px', color: 'rgb(253, 128, 10)' }} />Who We Are</button>
+          </Link>
+
+           <Link to="/partner" style={{ textDecoration: "none" }}>
+            <button><FaHandsHelping style={{ marginRight: '8px', fontSize: '30px', color: 'rgb(253, 128, 10)' }} />Support us</button>
           </Link>
           
           <Link to="/company_contacts" style={{ textDecoration: "none" }}>
