@@ -57,10 +57,15 @@ app.use("/ec26.png", express.static(path.join(__dirname, "public/ec26.png")));
 
 
 
+
+
 // ✅ Directory setup
-const PROFILE_DIR = path.join(__dirname, "uploads/profile");
-const ADMIN_PROFILE_DIR = path.join(__dirname, "uploads/admins");
-const ACTIVITY_DIR = path.join(__dirname, "uploads");
+const UPLOADS_DIR = path.join(__dirname, "uploads");
+if (!fs.existsSync(UPLOADS_DIR)) fs.mkdirSync(UPLOADS_DIR);  
+
+const PROFILE_DIR = path.join(UPLOADS_DIR, "profile");
+const ADMIN_PROFILE_DIR = path.join(UPLOADS_DIR, "admins");
+const ACTIVITY_DIR = UPLOADS_DIR;
 
 [PROFILE_DIR, ADMIN_PROFILE_DIR, ACTIVITY_DIR].forEach(dir => {
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });

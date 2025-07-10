@@ -181,7 +181,7 @@ const handleSubmitReply = async (postId, commentIndex) => {
 };
 
   return (
-    <div className="eco-container" style={{ backgroundImage: `url(${social})` }}>
+    <div className="eco-container" style={{ backgroundImage: `url(${ec32})` }}>
       <Navbar />
 
       <div className="eco-card-top">
