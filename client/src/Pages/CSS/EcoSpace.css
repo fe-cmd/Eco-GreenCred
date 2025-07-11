@@ -150,12 +150,12 @@
   .eco-profile { width: 30px; height: 30px; }
 
   .eco-card-top{ 
-    margin-top: 100px;
+    margin-top: 150px;
     max-width: 300px;
   }
 
   .eco-icons{
-    margin-left: 30px;
+    margin-left: 50px;
   }
 
 .eco-feed{
@@ -170,7 +170,11 @@
   }
   .eco-profile { width: 30px; height: 30px; }
 
-  .eco-card-top{ margin-top: 50px;}
+  .eco-card-top{ margin-top: 150px;}
+  .eco-icons{
+    margin-left: 50px;
+  }
+
 }
 
 @media (max-width: 768px) {

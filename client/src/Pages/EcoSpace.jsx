@@ -173,6 +173,11 @@ const EcoSpace = () => {
     }
   };
 
+  const getImageUrl = (url) => {
+  return url?.startsWith('http') ? url : `${API}/${url}`;
+};
+
+
   return (
     <div className="eco-container" style={{ backgroundImage: `url(${social})` }}>
       <Navbar />
@@ -213,7 +218,7 @@ const EcoSpace = () => {
         {posts.map(post => (
           <div key={post._id} className="eco-post">
             <div className="eco-header">
-              <img src={post.profileImage} alt="dp" className="eco-profile" />
+            <img src={getImageUrl(post.profileImage)} className="eco-profile" />
               <span className="eco-name">{post.name}</span>
             </div>
 
@@ -243,13 +248,13 @@ const EcoSpace = () => {
                 {post.comments.map((c, ci) => (
                   <div key={ci}>
                     <div className="eco-comment">
-                      <img src={c.profileImage} className="eco-profile" />
+                    <img src={getImageUrl(c.profileImage)} className="eco-profile" />
                       <strong>{c.username}</strong>: {c.text}
                     </div>
 
                     {c.replies.map((r, ri) => (
                       <div key={ri} className="eco-reply">
-                        <img src={r.profileImage} className="eco-profile" />
+                      <img src={getImageUrl(r.profileImage)} className="eco-profile" />
                         <strong>{r.username}</strong>: {r.text}
                       </div>
                     ))}
