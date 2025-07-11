@@ -13,6 +13,15 @@ const { Server } = require("socket.io"); // ✅ Correct import
 
 const app = express();
 const server = http.createServer(app);
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+const cloudinary = require('cloudinary').v2;
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_SECRET,
+});
+
 
 const io = new Server(server, {
   cors: { origin: '*' }, // or specify frontend URL
@@ -84,18 +93,25 @@ const adminStorage = multer.diskStorage({
 });
 const uploadAdminProfile = multer({ storage: adminStorage });
 
-const activityStorage = multer.diskStorage({
-  destination: (_, __, cb) => cb(null, ACTIVITY_DIR),
-  filename: (_, file, cb) => cb(null, `${Date.now()}-${file.originalname}`)
+const uploadPost = multer({
+  storage: new CloudinaryStorage({
+    cloudinary,
+    params: {
+      folder: 'eco_posts',
+      resource_type: 'auto', // handles images and videos
+    },
+  }),
 });
-const uploadActivity = multer({ storage: activityStorage });
 
-// Multer config for eco posts
-const postStorage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, "uploads"),
-  filename: (req, file, cb) => cb(null, `${Date.now()}-${file.originalname}`)
+const uploadActivity = multer({
+  storage: new CloudinaryStorage({
+    cloudinary,
+    params: {
+      folder: 'activity_uploads',
+      resource_type: 'auto',
+    },
+  }),
 });
-const uploadPost = multer({ storage: postStorage });
 
 // 📢 Public: get all posts
 app.get('/eco-space/posts', async (_, res) => {
@@ -109,19 +125,20 @@ app.post('/eco-space/upload', uploadPost.array('media'), async (req, res) => {
 
   if (!user) return res.status(404).json({ message: "User not found." });
 
-  const mediaPaths = req.files.map(file => `/uploads/${file.filename}`);
+  const mediaPaths = req.files.map(file => file.path); // Cloudinary hosted URL
 
   const newPost = new Post({
-    username,
-    name: user.name,
-    profileImage: user.profileImage,
-    caption,
-    isVideo: isVideo === 'true',
-    media: mediaPaths,
-    likes: [],
-    favorites: [],
-    comments: [],
-  });
+  username,
+  name: user.name,
+  profileImage: user.profileImage,
+  caption,
+  isVideo: isVideo === 'true',
+  media: mediaPaths,     // Now Cloudinary URLs
+  likes: [],
+  favorites: [],
+  comments: [],
+});
+
 
   await newPost.save();
 
@@ -304,7 +321,7 @@ app.post("/upload-activity", uploadActivity.array("files", 5), async (req, res) 
     id: Date.now() + Math.random(),
     activityType,
     description,
-    filePath: `/uploads/${file.filename}`,
+    filePath: file.path,  // ✅ Cloudinary URL
     fileType: file.mimetype.startsWith("video") ? "video" : "image",
     fileGroupId: groupId,
     status: "pending",
@@ -317,6 +334,7 @@ app.post("/upload-activity", uploadActivity.array("files", 5), async (req, res) 
 
   res.json({ message: "Upload(s) received", uploads });
 });
+
 
 
 

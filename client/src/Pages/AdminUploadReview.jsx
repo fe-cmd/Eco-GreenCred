@@ -59,13 +59,20 @@ const AdminUploadReview = () => {
         <FaArrowLeft size={20} /> Back
       </button>
 
-      <div className="media-container">
-        {upload.fileType === "video" ? (
-          <video src={`${API}${upload.filePath}`} controls className="review-media" />
-        ) : (
-          <img src={`${API}${upload.filePath}`} alt="upload" className="review-media" />
-        )}
-      </div>
+     <div className="media-container">
+  {(() => {
+    const mediaSrc = upload.filePath.startsWith("http")
+      ? upload.filePath
+      : `${API}${upload.filePath}`;
+
+    return upload.fileType === "video" ? (
+      <video src={mediaSrc} controls className="review-media" />
+    ) : (
+      <img src={mediaSrc} alt="upload" className="review-media" />
+    );
+  })()}
+</div>
+
 
       <div className="info-row">
         <p><strong>Description:</strong> {upload.description}</p>

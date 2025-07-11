@@ -4,7 +4,7 @@ import { FaCamera } from "react-icons/fa";
 import "./CSS/AdminDashboard.css";
 import ec28 from '../Components/Assets/ec28.png'; // ✅ JSX-based background image
 
-const API = process.env.REACT_APP_API || "";
+const API = process.env.REACT_APP_API || "http://localhost:5000";
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
@@ -15,7 +15,10 @@ const AdminDashboard = () => {
     fetch(`${API}/admin/profile`)
       .then((res) => res.json())
       .then((data) => {
-        if (data.profileImage) setProfileImage(`${API}/${data.profileImage}`);
+        if (data.profileImage) {
+          const isCloud = data.profileImage.startsWith("http");
+          setProfileImage(isCloud ? data.profileImage : `${API}/${data.profileImage}`);
+        }
       })
       .catch(() => setProfileImage("/ec26.png"));
   }, []);
@@ -47,7 +50,8 @@ const AdminDashboard = () => {
       });
       const data = await res.json();
       if (data.profileImage) {
-        setProfileImage(`${API}/${data.profileImage}`);
+        const isCloud = data.profileImage.startsWith("http");
+        setProfileImage(isCloud ? data.profileImage : `${API}/${data.profileImage}`);
       }
     } catch (err) {
       console.error("Upload failed:", err);
@@ -100,7 +104,7 @@ const AdminDashboard = () => {
                   onClick={() => handleCardClick(upload.username, upload.id)}
                 >
                   <img
-                    src={`${API}/${upload.profileImage}`}
+                    src={upload.profileImage.startsWith("http") ? upload.profileImage : `${API}/${upload.profileImage}`}
                     alt={upload.name}
                     className="card-profile-pic"
                   />

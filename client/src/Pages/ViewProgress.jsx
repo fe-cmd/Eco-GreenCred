@@ -11,9 +11,7 @@ const ViewProgress = () => {
   const [uploads, setUploads] = useState([]);
   const [userPoints, setUserPoints] = useState(0);
   const [statusMessage, setStatusMessage] = useState("");
-
-  // popup state
-  const [popupImage, setPopupImage] = useState(null);
+  const [popupImage, setPopupImage] = useState(null); // for enlarged preview
 
   useEffect(() => {
     fetch(`${API}/user/${username}`)
@@ -53,11 +51,14 @@ const ViewProgress = () => {
     setPopupImage(null);
   };
 
+  const resolveUrl = (path) =>
+    path?.startsWith("http") ? path : `${API}/${path}`;
+
   return (
     <div className="progress-container">
       <div className="progress-header">
         <Link to={`/dashboard/${username}`} className="back-arrow">
-          <FiArrowLeft size={24}  style={{ color:"orange"}}/>
+          <FiArrowLeft size={24} style={{ color: "orange" }} />
         </Link>
         <div className="prg">
           <h2 className="progress-title">Your Uploaded Items</h2>
@@ -83,7 +84,7 @@ const ViewProgress = () => {
             <div key={i} className="upload-card">
               {upload.fileType === "video" ? (
                 <video
-                  src={upload.filePath}
+                  src={resolveUrl(upload.filePath)}
                   controls={upload.status === "approved"}
                   className="vid-up"
                 />
@@ -92,19 +93,19 @@ const ViewProgress = () => {
                   {upload.filePath.map((img, index) => (
                     <img
                       key={index}
-                      src={img}
+                      src={resolveUrl(img)}
                       alt={`Group ${i}-${index}`}
                       className="group-image-thumb"
-                      onClick={() => handleImageClick(img)}
+                      onClick={() => handleImageClick(resolveUrl(img))}
                     />
                   ))}
                 </div>
               ) : (
                 <img
-                  src={upload.filePath}
+                  src={resolveUrl(upload.filePath)}
                   alt="Upload preview"
                   className="upload-image"
-                  onClick={() => handleImageClick(upload.filePath)}
+                  onClick={() => handleImageClick(resolveUrl(upload.filePath))}
                 />
               )}
 
@@ -131,7 +132,11 @@ const ViewProgress = () => {
 
       {popupImage && (
         <div className="image-popup-overlay" onClick={closePopup}>
-          <img src={popupImage} alt="Enlarged" className="image-popup-content" />
+          <img
+            src={popupImage}
+            alt="Enlarged"
+            className="image-popup-content"
+          />
         </div>
       )}
     </div>

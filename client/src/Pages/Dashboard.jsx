@@ -2,11 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { FaPlusCircle, FaGift, FaCoins, FaCamera, FaSignOutAlt } from "react-icons/fa";
 import './CSS/Dashboard.css';
-import ec28 from '../Components/Assets/ec28.png'; // ✅ JSX-based background image
-import ec13 from '../Components/Assets/ec13.png'; // ✅ JSX-based background image
-import ec32 from '../Components/Assets/ec32.png'; // Adjust path if different
-
-
+import ec28 from '../Components/Assets/ec28.png';
+import ec13 from '../Components/Assets/ec13.png';
+import ec32 from '../Components/Assets/ec32.png';
 
 const API = process.env.REACT_APP_API || "http://localhost:5000";
 
@@ -35,7 +33,12 @@ const Dashboard = () => {
       .then(res => res.json())
       .then(data => {
         setUser(data);
-        setPreviewImage(data.profileImage ? `${API}/${data.profileImage}` : "/ec26.png");
+        if (data.profileImage) {
+          const isCloud = data.profileImage.startsWith("http");
+          setPreviewImage(isCloud ? data.profileImage : `${API}/${data.profileImage}`);
+        } else {
+          setPreviewImage("/ec26.png");
+        }
       })
       .catch(err => console.error("Error fetching user:", err));
   }, [username]);
@@ -48,8 +51,7 @@ const Dashboard = () => {
   }, []);
 
   const handleLogout = () => navigate('/');
-
-const handlePost = () => navigate(`/eco-space/${username}`);
+  const handlePost = () => navigate(`/eco-space/${username}`);
 
   const handleImageChange = async (e) => {
     const file = e.target.files[0];
@@ -64,7 +66,10 @@ const handlePost = () => navigate(`/eco-space/${username}`);
         body: formData
       });
       const data = await res.json();
-      setPreviewImage(`${API}/${data.profileImage}`);
+      if (data.profileImage) {
+        const isCloud = data.profileImage.startsWith("http");
+        setPreviewImage(isCloud ? data.profileImage : `${API}/${data.profileImage}`);
+      }
     } catch (err) {
       console.error("Upload failed", err);
     }
@@ -81,7 +86,7 @@ const handlePost = () => navigate(`/eco-space/${username}`);
           <h2>{firstName}</h2>
         </div>
         <div className="profile-wrapper">
-                  <button className="logout-text-btn" onClick={handlePost}>ECO BLOGPOST</button>
+          <button className="logout-text-btn" onClick={handlePost}>ECO BLOGPOST</button>
           <div className="profile-left">
             <img src={previewImage} alt="Profile" className="profile-pic" />
             <label htmlFor="upload" className="camera-icon" title="Change Photo">
@@ -110,46 +115,38 @@ const handlePost = () => navigate(`/eco-space/${username}`);
           <span className="action-text">Redeem Rewards</span>
         </div>
       </div>
-      
+
       <div className="bla">
-      <img
-                  src={ec28}
-                  alt="lad"
-                  className="mains"
-                />
-                  <img
-                  src={ec13}
-                  alt="lad"
-                  className="mains"
-                />
-                  
-                </div>
+        <img src={ec28} alt="lad" className="mains" />
+        <img src={ec13} alt="lad" className="mains" />
+      </div>
 
       <div className="tip-box">
         <h4>Sustainability Tip of the Day</h4>
         <p>{tipsList[currentTipIndex]}</p>
       </div>
 
-       <div className="quiz-box">
+      <div className="quiz-box">
         <h4>Eco-GreenCred Challenges you</h4>
-        <p>Take our Quiz to earn more <FaCoins color="#FFD700" size={30} /> points, to see how knowledgeable you are.</p>
-         <img
-                  src={ec32}
-                  alt="lad"
-                  className="mainz"
-                />
-        <button className="quiz-btn" onClick={() => navigate(`/quiz-intro/${username}`)}>Access Quiz!</button>
+        <p>
+          Take our Quiz to earn more <FaCoins color="#FFD700" size={30} /> points,
+          to see how knowledgeable you are.
+        </p>
+        <img src={ec32} alt="lad" className="mainz" />
+        <button className="quiz-btn" onClick={() => navigate(`/quiz-intro/${username}`)}>
+          Access Quiz!
+        </button>
       </div>
 
       <div className="progress-btn-group">
-        <button className="progress-btn" onClick={() => navigate(`/progress/${username}`)}>View Progress</button>
+        <button className="progress-btn" onClick={() => navigate(`/progress/${username}`)}>
+          View Progress
+        </button>
       </div>
 
       <button className="progress-btn2" onClick={() => navigate(`/leaderboard/${username}`)}>
         View current rank among others!
       </button>
-
-     
     </div>
   );
 };

@@ -4,8 +4,7 @@ import { FaCoins } from 'react-icons/fa';
 import './CSS/Leaderboard.css';
 import ec24 from '../Components/Assets/ec24.png';
 
-
-const API = process.env.REACT_APP_API || "";
+const API = process.env.REACT_APP_API || "http://localhost:5000";
 
 const Leaderboard = () => {
   const { username } = useParams();
@@ -27,48 +26,66 @@ const Leaderboard = () => {
   }, [range]);
 
   return (
-    <div className="leaderboard-container"
-     style={{
-    backgroundImage: `url(${ec24})`,
-    backgroundSize: 'cover',
-    backgroundRepeat: 'repeat-y',
-    backgroundPosition: 'center',
-    opacity: 1, // full visible container
-  }}>
-    <div className="leaderboard-overlay">
+    <div
+      className="leaderboard-container"
+      style={{
+        backgroundImage: `url(${ec24})`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'repeat-y',
+        backgroundPosition: 'center',
+        opacity: 1,
+      }}
+    >
+      <div className="leaderboard-overlay">
 
-      <div className="leaderboard-header">
-        <span className="back-arrow" onClick={() => navigate(`/dashboard/${username}`)}>←</span>
-        <h2>Leaderboard</h2>
-      </div>
-
-      <div className="toggle-buttons">
-        <button onClick={() => setRange("weekly")} className={range === "weekly" ? "active" : ""}>Weekly</button>
-        <button onClick={() => setRange("monthly")} className={range === "monthly" ? "active" : ""}>Monthly</button>
-      </div>
-
-      <div className="leaderboard-list-header">
-        <span>Rank</span>
-        <span>Name</span>
-        <span>Points</span>
-      </div>
-
-      {users.map((user, index) => (
-        <div key={index} className="leaderboard-card">
-          <span className="rank">{user.rank}</span>
-          <div className="user-info">
-            <img src={`${API}/${user.profileImage}`} alt="profile" />
-            <span>{user.name}</span>
-          </div>
-          <div className="points">
-            <FaCoins color="#FFD700" />
-            <span>{user.points} pts</span>
-          </div>
+        <div className="leaderboard-header">
+          <span className="back-arrow" onClick={() => navigate(`/dashboard/${username}`)}>←</span>
+          <h2>Leaderboard</h2>
         </div>
-      ))}
-    </div>
-      </div>
 
+        <div className="toggle-buttons">
+          <button
+            onClick={() => setRange("weekly")}
+            className={range === "weekly" ? "active" : ""}
+          >
+            Weekly
+          </button>
+          <button
+            onClick={() => setRange("monthly")}
+            className={range === "monthly" ? "active" : ""}
+          >
+            Monthly
+          </button>
+        </div>
+
+        <div className="leaderboard-list-header">
+          <span>Rank</span>
+          <span>Name</span>
+          <span>Points</span>
+        </div>
+
+        {users.map((user, index) => {
+          const isCloud = user.profileImage?.startsWith("http");
+          const profileUrl = isCloud
+            ? user.profileImage
+            : `${API}/${user.profileImage}`;
+
+          return (
+            <div key={index} className="leaderboard-card">
+              <span className="rank">{user.rank}</span>
+              <div className="user-info">
+                <img src={profileUrl} alt="profile" />
+                <span>{user.name}</span>
+              </div>
+              <div className="points">
+                <FaCoins color="#FFD700" />
+                <span>{user.points} pts</span>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
   );
 };
 
