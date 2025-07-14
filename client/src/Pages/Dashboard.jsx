@@ -9,6 +9,7 @@ import ec32 from '../Components/Assets/ec32.png';
 const API = process.env.REACT_APP_API || "http://localhost:5000";
 
 const tipsList = [
+  "😊 Never forget your Eco-Cred Id, keep it close to your mind",
   "🌱 Turn off lights when not in use.",
   "🌿 Plant a tree today.",
   "🌍 Use reusable water bottles.",
@@ -77,6 +78,13 @@ const Dashboard = () => {
 
   if (!user) return <p>Loading...</p>;
   const firstName = user.name.split(" ")[0];
+  const digits = (user._id.match(/\d/g) || []).join('');
+  let ecoId = '';
+  for (let i = 0; i < 5; i++) {
+    const index = (i * 3 + digits.charCodeAt(i % digits.length)) % digits.length;
+    ecoId += digits[index];
+  }
+
 
   return (
     <div className="dashboard-container">
@@ -102,6 +110,7 @@ const Dashboard = () => {
         <div className="points-value">
           <FaCoins color="#FFD700" size={30} />
           <span>{user.points || 0} pts</span>
+          <div className="eco-id">Your EcoCred-ID: {ecoId}</div>
         </div>
       </div>
 

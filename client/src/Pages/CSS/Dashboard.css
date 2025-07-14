@@ -212,6 +212,15 @@
   color: rgb(5, 49, 5);
 }
 
+.eco-id {
+  margin-top: 5px;
+  font-size: 0.9rem;
+  color: #2e7d32; /* Dark green */
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+
 .progress-btn3 {
   background: rgb(253, 128, 10);
   color: white;
