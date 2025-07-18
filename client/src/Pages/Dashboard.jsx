@@ -29,7 +29,8 @@ const Dashboard = () => {
   const [currentTipIndex, setCurrentTipIndex] = useState(0);
   const [previewImage, setPreviewImage] = useState(null);
 
-  useEffect(() => {
+ useEffect(() => {
+  const fetchUser = () => {
     fetch(`${API}/user/${username}`)
       .then(res => res.json())
       .then(data => {
@@ -42,7 +43,17 @@ const Dashboard = () => {
         }
       })
       .catch(err => console.error("Error fetching user:", err));
-  }, [username]);
+  };
+
+  // Initial fetch
+  fetchUser();
+
+  // Refresh every 10 seconds
+  const refreshInterval = setInterval(fetchUser, 10000);
+
+  return () => clearInterval(refreshInterval);
+}, [username]);
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -50,6 +61,8 @@ const Dashboard = () => {
     }, 10000);
     return () => clearInterval(interval);
   }, []);
+
+  
 
   const handleLogout = () => navigate('/');
   const handlePost = () => navigate(`/eco-space/${username}`);
@@ -78,12 +91,8 @@ const Dashboard = () => {
 
   if (!user) return <p>Loading...</p>;
   const firstName = user.name.split(" ")[0];
-  const digits = (user._id.match(/\d/g) || []).join('');
-  let ecoId = '';
-  for (let i = 0; i < 5; i++) {
-    const index = (i * 3 + digits.charCodeAt(i % digits.length)) % digits.length;
-    ecoId += digits[index];
-  }
+  const ecoId = user.ecoId || 'Not assigned';
+
 
 
   return (

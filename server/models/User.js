@@ -19,6 +19,7 @@ const userSchema = new mongoose.Schema({
   phone: String,
   occupation: String,
   points: { type: Number, default: 0 },
+  ecoId: { type: String },
   profileImage: { type: String, default: '' },
   uploads: [uploadSchema]
 }, {

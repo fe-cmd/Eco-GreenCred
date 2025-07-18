@@ -246,17 +246,35 @@ app.post('/eco-space/reply', async (req, res) => {
 });
 
 
-// ✅ Signup
+// ✅ Signup with ecoId generation
 app.post("/signup", async (req, res) => {
-  const { name, username, email, password, confirmPassword, phone, occupation } = req.body;
-  if (password !== confirmPassword) return res.status(400).json({ message: "Passwords do not match." });
+  try {
+    const { name, username, email, password, confirmPassword, phone, occupation } = req.body;
 
-  const exists = await User.findOne({ $or: [{ email }, { username }] });
-  if (exists) return res.status(400).json({ message: "Email or username already exists." });
+    if (password !== confirmPassword) 
+      return res.status(400).json({ message: "Passwords do not match." });
 
-  const newUser = new User({ name, username, email, password, phone, occupation });
-  await newUser.save();
-  res.json({ message: "Signup successful." });
+    const exists = await User.findOne({ $or: [{ email }, { username }] });
+    if (exists) 
+      return res.status(400).json({ message: "Email or username already exists." });
+
+    // Create new user instance without ecoId yet
+    const newUser = new User({ name, username, email, password, phone, occupation });
+
+    // Save to get _id generated
+    await newUser.save();
+
+    // Generate ecoId based on _id and save it
+    const ecoId = generateEcoId(newUser._id.toString());
+    newUser.ecoId = ecoId;
+
+    await newUser.save();
+
+    res.json({ message: "Signup successful.", ecoId });
+  } catch (error) {
+    console.error("Signup error:", error);
+    res.status(500).json({ message: "Server error during signup." });
+  }
 });
 
 // ✅ Login
@@ -416,73 +434,60 @@ app.get("/upload/:username/:uploadId", async (req, res) => {
 
 
 // ✅ Leaderboard (works permanently now)
+// GET /leaderboard
 app.get('/leaderboard', async (req, res) => {
-  const range = req.query.range || 'all';
-  const now = new Date();
+  try {
+    const users = await User.find({}, 'username name profileImage points').sort({ points: -1 });
+    res.json(users);
+  } catch (err) {
+    console.error('Error fetching leaderboard:', err);
+    res.status(500).json({ message: 'Server error while fetching leaderboard' });
+  }
+});
 
+
+
+// Sync endpoint: Syncs points from quiz, upload, and retains hardware points
+app.get('/sync-user-points', async (req, res) => {
   try {
     const users = await User.find();
     const quizAttempts = await QuizAttempt.find();
 
-    const leaderboardData = users.map(user => {
-      let total = 0;
+    for (const user of users) {
+      // 1. Calculate total quiz points
+      const userQuizzes = quizAttempts.filter(q => q.username === user.username);
+      const quizPoints = userQuizzes.reduce((sum, q) => sum + (q.score || 0), 0);
 
-      // ✅ 1. Add quiz points within the range
-      const validQuizAttempts = quizAttempts.filter(attempt => {
-        if (attempt.username !== user.username) return false;
-        const quizDate = new Date(attempt.timestamp);
+      // 2. Calculate total upload points
+      const approvedUploads = (user.uploads || []).filter(u => u.status === 'approved');
+      const uploadPoints = approvedUploads.reduce((sum, u) => sum + (u.points || 0), 0);
 
-        if (range === 'weekly') {
-          return quizDate >= new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
-        } else if (range === 'monthly') {
-          return quizDate >= new Date(now.getFullYear(), now.getMonth(), 1);
-        }
-        return true; // 'all'
-      });
+      // 3. Compute new non-hardware points
+      const nonHardwarePoints = quizPoints + uploadPoints;
 
-      const quizPoints = validQuizAttempts.reduce((sum, a) => sum + (a.score || 0), 0);
-      total += quizPoints;
+      // 4. Estimate existing hardware points
+      const previousQuizPoints = user.previousQuizPoints || 0;
+      const previousUploadPoints = user.previousUploadPoints || 0;
+      const estimatedHardwarePoints = user.points - (previousQuizPoints + previousUploadPoints);
 
-      // ✅ 2. Add upload points within the range
-      const validUploads = (user.uploads || []).filter(upload => {
-        if (upload.status !== 'approved') return false;
-        const uploadDate = new Date(upload.timestamp);
+      // 5. Final updated user points
+      user.points = estimatedHardwarePoints + nonHardwarePoints;
 
-        if (range === 'weekly') {
-          return uploadDate >= new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
-        } else if (range === 'monthly') {
-          return uploadDate >= new Date(now.getFullYear(), now.getMonth(), 1);
-        }
-        return true;
-      });
+      // 6. Update tracking fields
+      user.previousQuizPoints = quizPoints;
+      user.previousUploadPoints = uploadPoints;
 
-      const uploadPoints = validUploads.reduce((sum, u) => sum + (u.points || 0), 0);
-      total += uploadPoints;
+      await user.save();
+    }
 
-      return {
-        username: user.username,
-        name: user.name,
-        profileImage: user.profileImage || 'ec26.png',
-        points: total
-      };
-    });
-
-    // ✅ Sort and rank
-    leaderboardData.sort((a, b) => b.points - a.points);
-    let currentRank = 1, lastPoints = null;
-
-    const ranked = leaderboardData.map((user, index) => {
-      if (user.points !== lastPoints) currentRank = index + 1;
-      lastPoints = user.points;
-      return { ...user, rank: currentRank };
-    });
-
-    res.json(ranked);
-  } catch (err) {
-    console.error("Leaderboard error:", err);
-    res.status(500).json({ message: "Error loading leaderboard." });
+    res.status(200).json({ message: 'User points synced successfully across all users.' });
+  } catch (error) {
+    console.error('Error syncing user points:', error);
+    res.status(500).json({ message: 'Internal server error during point sync.' });
   }
 });
+
+
 
 
 
@@ -582,6 +587,49 @@ app.get("/check-status/:username", async (req, res) => {
   return res.json({}); // no new updates
 });
 
+function generateEcoId(userId) {
+  const digits = (userId.match(/\d/g) || []).join('');
+  let ecoId = '';
+  for (let i = 0; i < 5; i++) {
+    const index = (i * 3 + digits.charCodeAt(i % digits.length)) % digits.length;
+    ecoId += digits[index];
+  }
+  return ecoId;
+}
+
+
+// Route for hardware to update user points based on weight
+app.post('/api/hardware/update-points', async (req, res) => {
+  try {
+    const { ecoId, weightKg } = req.body;
+
+    if (!ecoId || !weightKg) {
+      return res.status(400).json({ message: 'ecoId and weightKg are required' });
+    }
+
+    const weightG = parseFloat(weightKg) * 1000;
+    const points = Math.floor(weightG); // 1 gram = 1 point
+
+    const user = await User.findOne({ ecoId });
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    user.points += points;
+    await user.save();
+
+    res.status(200).json({
+      message: 'Points updated successfully',
+      newPoints: user.points
+    });
+  } catch (error) {
+    console.error('Error updating points:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
+
 // ✅ Test
 app.get("/api/test", (_, res) => {
   res.json({ message: "Backend is working!" });
@@ -596,6 +644,6 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // ✅ Start server
-server.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
+server.listen(PORT, '0.0.0.0', () => {
+  console.log(`🚀 Server running on http://0.0.0.0:${PORT}`);
 });
